@@ -95,24 +95,27 @@ useEffect(()=>{
         </div>
       </section>
 <section className='py-10'>
-    <h2 className='text-4xl text-center'>Featured Movies</h2>
-   {
-movies.map(movie=> <div className='' key={movies.id}>
-<div className='grid grid-cols-1 md:grid-cols-3'>
-<div><img className='w-[200px] h-full' src={movie.poster} alt="" /></div>
-<div>
-<p>Title:{movie.title}</p>
+    <h2 className='text-4xl text-center my-4'>Featured Movies</h2>
+ <div className='grid grid-cols-1 md:grid-cols-3 items-center gap-4'>
+ {
+movies.map(movie=> <div className='card' key={movies.id}>
+<div className='bg-base-200 items-center justify-center shadow-md  '>
+<img className='w-[400px] lg:h-[400px] mx-auto object-cover p-4 ' src={movie.poster} alt="" />
+<div className='p-2'>
+<p className='text-2xl'>{movie.title}</p>
 <p>Genre:{movie.genre}</p>
 <p>Duration:{movie.duration}</p>
 <p>ReleaseYear:{movie.releaseYear}</p>
-<p>Rating:{movie.rating}</p>
+
+<p className='top-10'>Rating:{movie.rating}</p>
+
+</div>
+</div>
 </div>
 
-
-</div>
-
-</div> )
+)
    }
+ </div>
 </section>
         </div>
     );
