@@ -12,6 +12,8 @@ const Navbar = () => {
 <li><NavLink to='/'>Home</NavLink></li>
 <li><NavLink to='/login'>Login</NavLink></li>
 <li><NavLink to='/register'>Register</NavLink></li>
+<li><NavLink to='/movies'>Add Movies</NavLink></li>
+<li><NavLink to='/favorites'>My Favorites</NavLink></li>
 </>
     );
     return (
@@ -57,10 +59,10 @@ const Navbar = () => {
             <button className="btn bg-white text-yellow-500" onClick={logOut}>Log-Out</button>
           </div>
         ) : (
-        <>
+        <div className=" md:flex-col">
           <Link className="btn bg-white text-green-500" to='/login'>Login</Link>
           <Link className="btn bg-white text-green-500" to='/register'>Register</Link>
-        </>
+        </div>
         )}
       </div>
 </div>
