@@ -1,6 +1,7 @@
 import {  Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../layouts/AuthProvider";
 import { useContext } from "react";
+import { FaUser } from "react-icons/fa";
 
 
 const Navbar = () => {
@@ -56,7 +57,10 @@ const Navbar = () => {
             <button className="btn bg-white text-yellow-500" onClick={logOut}>Log-Out</button>
           </div>
         ) : (
+        <>
           <Link className="btn bg-white text-green-500" to='/login'>Login</Link>
+          <Link className="btn bg-white text-green-500" to='/register'>Register</Link>
+        </>
         )}
       </div>
 </div>
