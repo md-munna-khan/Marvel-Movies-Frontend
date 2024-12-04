@@ -7,9 +7,12 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
+import movie1 from '../assets/movie1.png'
+import movie2 from '../assets/movie2.png'
+import movie3 from '../assets/movie3.png'
 const Home = () => {
     return (
-        <div>
+        <div className='w-11/12 mx-auto my-10'>
            <section className="banner mx-auto">
         <div className="flex items-center justify-center">
 
@@ -31,13 +34,13 @@ const Home = () => {
           >
             
             <SwiperSlide>
-              <img src={mountain1} alt="Mountain Trekking" className="w-full h-64 md:h-96 lg:h-[800px] object-cover" />
+              <img src={movie1} alt="Mountain Trekking" className="w-full h-64 md:h-96 lg:h-[800px] object-cover" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={mountain2} alt="Ocean Dives" className="w-full h-64 md:h-96 lg:h-[800px] object-cover" />
+              <img src={movie2} alt="Ocean Dives" className="w-full h-64 md:h-96 lg:h-[800px] object-cover" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={mountain3} alt="Forest Adventures" className="w-full h-64 md:h-96 lg:h-[800px] object-cover" />
+              <img src={movie3} alt="Forest Adventures" className="w-full h-64 md:h-96 lg:h-[800px] object-cover" />
             </SwiperSlide>
           </Swiper>
         </div>
