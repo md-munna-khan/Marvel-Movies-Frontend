@@ -1,8 +1,10 @@
-import {  NavLink } from "react-router-dom";
+import {  Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../layouts/AuthProvider";
+import { useContext } from "react";
 
 
 const Navbar = () => {
-
+  const { user, logOut } = useContext(AuthContext);
     const links =(
 
 <>
@@ -42,9 +44,21 @@ const Navbar = () => {
      {links}
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
-  </div>
+  <div className="navbar-end items-center lg:flex-col">
+        {user && user.email ? (
+          <div className="relative flex items-center gap-4">
+            <div className="group relative">
+              <img className="w-[40px] h-[40px] rounded-full cursor-pointer" src={user?.photoURL || <FaUser></FaUser>} alt="User" />
+              <div className="absolute left-1/2 transform -translate-x-1/2 top-full mb-2 hidden group-hover:block bg-gray-700 text-white text-sm p-2 rounded">
+              {user.displayName || user.email}
+              </div>
+            </div>
+            <button className="btn bg-white text-yellow-500" onClick={logOut}>Log-Out</button>
+          </div>
+        ) : (
+          <Link className="btn bg-white text-green-500" to='/login'>Login</Link>
+        )}
+      </div>
 </div>
     );
 };
