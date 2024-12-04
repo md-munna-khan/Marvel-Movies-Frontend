@@ -1,0 +1,68 @@
+import { Toaster } from "react-hot-toast";
+import { Link } from "react-router-dom";
+
+
+const Login = () => {
+    const handleLogin = e =>{
+        e.preventDefault()
+    }
+    return (
+        <div>
+                  <div className="min-h-screen flex justify-center">
+       <div className="hero bg-base-200 ">
+        <div className="hero-content flex-col ">
+         
+          <div className="card bg-base-100 w-full max-w-lg shrink-0 shadow-2xl lg:p-10">
+            <form onSubmit={handleLogin} className="card-body lg:w-full ">
+            <h1 className="lg:text-5xl md:text-2xl font-bold">Login now!</h1>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Email</span>
+                </label>
+                <input type="email" name="email" placeholder="email" className="input input-bordered"
+                //   value={email}
+                //   onChange={(e) => setEmail(e.target.value)}
+                required />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Password</span>
+                </label>
+                <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+               
+                <label className="label">
+            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+          </label>
+                 {/* <label className="label">
+                    {email ? (
+                      <Link to='/forget/password' state={{ email }} className="label-text-alt link link-hover">Forgot password?</Link>
+                    ) : (
+                      <span className="label-text-alt text-gray-500 cursor-not-allowed">Forgot password?</span>
+                    )}
+                  </label> */}
+               
+              </div>
+              <div className="form-control mt-6">
+                <button type="submit" className="btn btn-primary">Login</button>
+              </div>
+              <p>You Dont Have An Account Please <Link className="text-red-600" to='/register'>Register</Link></p>
+
+              {/* {
+                errorMessage && <p className="text-red-600">{errorMessage}</p>
+              }
+             {success && <p className="text-green-600">{success}</p>} */}
+                {/* <button type="button" onClick={handleGoggleSignIn} className=" border flex  justify-center rounded-lg items-center p-2 my-2  font-bold ">
+              <img className="w-6 ml-2" src={googleImg} alt="" />
+                  Log In With Google</button> */}
+            </form>
+           <Toaster></Toaster>
+          </div>
+        </div>
+      </div>
+       </div>
+
+        </div>
+    );
+};
+
+export default Login;
