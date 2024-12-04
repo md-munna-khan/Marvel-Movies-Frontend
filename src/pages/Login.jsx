@@ -1,17 +1,28 @@
-import { useContext } from "react";
-import { Toaster } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../layouts/AuthProvider";
 
 
 const Login = () => {
-  const {signInUser } = useContext(AuthContext)
+  const {signInUser,signInWithGoogle } = useContext(AuthContext)
+
+  const navigate = useNavigate();
+
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+
     const handleLogin = e =>{
      
         e.preventDefault()
         const email = e.target.email.value
-        const password = e.target.email.value
+        const password = e.target.password.value
         console.log(email,password)
+
+            // Clear previous messages
+    setErrorMessage('');
+    setSuccessMessage('');
+
         signInUser(email,password)
         .then((res)=>{
           console.log(res.user)
@@ -20,6 +31,21 @@ const Login = () => {
           console.log(error.message)
         })
     }
+
+    const handleGoggleSignIn = () => {
+      signInWithGoogle()
+        .then(() => {
+          setSuccessMessage("Google login successful!");
+          toast.success("Google login successful!");
+          setTimeout(() => {
+            navigate('/');
+          }, 2000);
+        })
+        .catch((error) => {
+          setErrorMessage(error.message);
+          toast.error(error.message);
+        });
+    };
     return (
         <div>
                   <div className="min-h-screen flex justify-center">
@@ -65,9 +91,9 @@ const Login = () => {
                 errorMessage && <p className="text-red-600">{errorMessage}</p>
               }
              {success && <p className="text-green-600">{success}</p>} */}
-                {/* <button type="button" onClick={handleGoggleSignIn} className=" border flex  justify-center rounded-lg items-center p-2 my-2  font-bold ">
-              <img className="w-6 ml-2" src={googleImg} alt="" />
-                  Log In With Google</button> */}
+                <button type="button" onClick={handleGoggleSignIn} className=" border flex  justify-center rounded-lg items-center p-2 my-2  font-bold ">
+              {/* <img className="w-6 ml-2" src={googleImg} alt="" /> */}
+                  Log In With Google</button>
             </form>
            <Toaster></Toaster>
           </div>

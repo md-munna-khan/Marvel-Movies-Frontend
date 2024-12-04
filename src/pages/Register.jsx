@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../layouts/AuthProvider";
 
 const Register = () => {
-  const { createNewUser, signInWithGoggle, updateUserProfile, setUser } = useContext(AuthContext);
+  const { createNewUser, signInWithGoogle, updateUserProfile, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const [errorMessage, setErrorMessage] = useState('');
@@ -56,7 +56,7 @@ const Register = () => {
   };
 
   const handleGoggleSignIn = () => {
-    signInWithGoggle()
+    signInWithGoogle()
       .then(() => {
         setSuccessMessage("Google login successful!");
         toast.success("Google login successful!");
@@ -67,6 +67,7 @@ const Register = () => {
       .catch((error) => {
         setErrorMessage(error.message);
         toast.error(error.message);
+        console.log(error)
       });
   };
 

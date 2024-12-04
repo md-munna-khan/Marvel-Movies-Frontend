@@ -1,9 +1,9 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../assets/firebase/firebase.init";
-import { GoogleAuthProvider } from "firebase/auth/web-extension";
 
-const goggleProvider= new GoogleAuthProvider()
+
+const googleProvider= new GoogleAuthProvider()
  export const AuthContext = createContext(null)
 const AuthProvider = ({children}) => {
     const [user,setUser]=useState(null)
@@ -27,15 +27,26 @@ const createNewUser = (email,password)=>{
      // log out
      const logOut = ()=>{
         setLoading(true)
-        signOut (auth)
+      return  signOut (auth)
     }
     // sign in with google
-    const signInWithGoggle = ()=>{
+    const signInWithGoogle = ()=>{
         setLoading(true)
-        return signInWithPopup(auth,goggleProvider)
+        return signInWithPopup(auth,googleProvider)
     }
   
-   // state change
+
+    const authInfo = {
+    createNewUser,
+      user,
+      setUser,
+loading,
+logOut,
+signInUser,
+signInWithGoogle,
+updateUserProfile
+    }
+     // state change
    useEffect(()=>{
     const unSubsCribe = onAuthStateChanged(auth,(currentUser)=>{
         setUser(currentUser)
@@ -45,19 +56,6 @@ const createNewUser = (email,password)=>{
         unSubsCribe()
     }
    },[])
-
-
-
-    const authInfo = {
-    createNewUser,
-      user,
-      setUser,
-loading,
-logOut,
-signInUser,
-signInWithGoggle,
-updateUserProfile
-    }
       
       
     return (
