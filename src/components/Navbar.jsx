@@ -14,6 +14,7 @@ const Navbar = () => {
 <li><NavLink to='/register'>Register</NavLink></li>
 <li><NavLink to='/movies'>Add Movies</NavLink></li>
 <li><NavLink to='/favorites'>My Favorites</NavLink></li>
+<li><NavLink to='/all-movies'>All Movies</NavLink></li>
 </>
     );
     return (

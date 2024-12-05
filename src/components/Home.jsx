@@ -1,5 +1,5 @@
 
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
@@ -28,7 +28,7 @@ const Home = () => {
       <section className="banner mx-auto">
         <div className="flex items-center justify-center">
           <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+            modules={[Navigation, Pagination, Scrollbar, A11y, ]}
             spaceBetween={50}
             slidesPerView={1}
             navigation
