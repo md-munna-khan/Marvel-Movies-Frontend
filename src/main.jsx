@@ -55,7 +55,7 @@ loader:()=>fetch('http://localhost:5000/add')
      {
       path:'/details/:id',
       element:<MovieDetails></MovieDetails>,
-      loader:({params})=> fetch(`http://localhost:5000/movies${params.id}`)
+      loader:({params})=> fetch(`http://localhost:5000/movies/${params.id}`)
      }
     ]
   },
