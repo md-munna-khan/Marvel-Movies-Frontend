@@ -1,7 +1,7 @@
 
 
 
-import { useLoaderData, Link, useLocation, useNavigate } from "react-router-dom";
+import { useLoaderData, Link,  useNavigate } from "react-router-dom";
 
 const MovieDetail = () => {
     const movieData = useLoaderData();

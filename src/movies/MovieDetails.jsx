@@ -24,9 +24,7 @@ const MovieDetails = () => {
                     <p className="text-sm text-gray-600">Release Year: {movieData.releaseYear}</p>
                     <p className="text-sm text-gray-600">Rating: {movieData.rating}</p>
                     <p className="text-sm text-gray-600">Details: {movieData.summary}</p>
-                    <Link to="/all-movies" className="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
-                        See All Movies
-                    </Link>
+                   
                 </div>
             </div>
         </div>
