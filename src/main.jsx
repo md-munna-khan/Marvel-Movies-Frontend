@@ -12,10 +12,11 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import AuthProvider from './layouts/AuthProvider';
 import Error from './components/Error';
-import AddMovie from './movies/AddMovies';
+
 import AddMovies from './movies/AddMovies';
 import MyFavorite from './movies/MyFavorites';
 import PrivateRoute from './layouts/PrivateRoute';
+import MovieDetails from './movies/MovieDetails';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,7 +25,8 @@ const router = createBrowserRouter([
     children:[
       {
         path:'/',
-        element:<Home></Home>
+        element:<Home></Home>,
+        loader:()=> fetch('http://localhost:5000/movies')
       },
       {
         path:'/login',
@@ -43,7 +45,11 @@ const router = createBrowserRouter([
         element:<PrivateRoute><MyFavorite></MyFavorite></PrivateRoute>
       },
     
-     
+     {
+      path:'/details/:id',
+      element:<MovieDetails></MovieDetails>,
+      loader:({params})=> fetch(`http://localhost:5000/movies${params.id}`)
+     }
     ]
   },
 ]);
