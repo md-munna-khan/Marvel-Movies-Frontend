@@ -18,6 +18,7 @@ import MyFavorite from './movies/MyFavorites';
 import PrivateRoute from './layouts/PrivateRoute';
 import MovieDetails from './movies/MovieDetails';
 import AllMovies from './movies/AllMovies';
+import MovieDetail from './movies/MovieDetail';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -43,6 +44,11 @@ const router = createBrowserRouter([
       
       },
       {
+        path:'/detail/:id',
+        element:<PrivateRoute><MovieDetail></MovieDetail></PrivateRoute>,
+        loader:({params})=> fetch(`http://localhost:5000/add/${params.id}`)
+       },
+      {
         path:'/favorites',
         element:<PrivateRoute><MyFavorite></MyFavorite></PrivateRoute>
       },
@@ -54,7 +60,7 @@ loader:()=>fetch('http://localhost:5000/add')
 
      {
       path:'/details/:id',
-      element:<MovieDetails></MovieDetails>,
+      element:<PrivateRoute><MovieDetails></MovieDetails></PrivateRoute>,
       loader:({params})=> fetch(`http://localhost:5000/movies/${params.id}`)
      }
     ]

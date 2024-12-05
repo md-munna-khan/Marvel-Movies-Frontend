@@ -1,80 +1,8 @@
-// import { useLoaderData } from "react-router-dom";
 
-
-// const AddMovies = () => {
-//     const data = useLoaderData()
-
-//     const handleSubmit = e =>{
-//         e.preventDefault()
-//         const poster = e.target.poster.value
-//         const title = e.target.title.value
-//         const genre = e.target.genre.value
-//         const duration = e.target.duration.value
-//         const release = e.target.release.value
-//         const rating = e.target.rating.value
-//         const summary = e.target.summary.value
-//         console.log(poster,title,genre,duration,release,rating,summary)
-//     }
-//     return (
-//         <div className="mx-auto my-10 p-10 bg-base-200">
-          
-//            <form onSubmit={handleSubmit}>
-//             <div>
-//                 {/* form1 */}
-//             <div className="form-control">
-//           <label className="label">
-//             <span className="label-text">Movie Poster</span>
-//           </label>
-//           <input type="text" placeholder="Movie poster" name='Poster' className="input input-bordered" required />
-//         </div>
-//             <div className="form-control">
-//           <label className="label">
-//             <span className="label-text">Movie title</span>
-//           </label>
-//           <input type="text" placeholder=" title" name='title' className="input input-bordered" required />
-//         </div>
-//             <div className="form-control">
-//           <label className="label">
-//             <span className="label-text">Movie Genre</span>
-//           </label>
-//           <input type="text" placeholder=" genre" name='genre' className="input input-bordered" required />
-//         </div>
-//             <div className="form-control">
-//           <label className="label">
-//             <span className="label-text">Movie Duration</span>
-//           </label>
-//           <input type="text" placeholder=" genre" name='duration' className="input input-bordered" required />
-//         </div>
-//             <div className="form-control">
-//           <label className="label">
-//             <span className="label-text"> Release Year</span>
-//           </label>
-//           <input type="text" placeholder=" release year" name='release' className="input input-bordered" required />
-//         </div>
-//             <div className="form-control">
-//           <label className="label">
-//             <span className="label-text"> Rating</span>
-//           </label>
-//           <input type="text" placeholder=" Rating" name='rating' className="input input-bordered" required />
-//         </div>
-//             <div className="form-control">
-//           <label className="label">
-//             <span className="label-text">summary</span>
-//           </label>
-//           <textarea  type="text" placeholder=" summary" name='summary' className="input input-bordered " required />
-//         </div>
-//            <button className="btn">Add Movie</button>
-//             </div>
-//            </form>
-//         </div>
-//     );
-// };
-
-// export default AddMovies;
 import { useState } from 'react';
 // import { useLoaderData } from 'react-router-dom';
 import { Rating } from 'react-simple-star-rating';
-import toast, { Toaster } from 'react-hot-toast';
+import { toast, Toaster } from 'react-hot-toast';
 
 const AddMovies = () => {
     // const data = useLoaderData();

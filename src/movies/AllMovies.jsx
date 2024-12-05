@@ -1,3 +1,4 @@
+
 import { useLoaderData, Link } from "react-router-dom";
 
 const AllMovies = () => {
@@ -16,8 +17,8 @@ const AllMovies = () => {
                             <p className="text-sm text-gray-600">Duration: {movie.duration} minutes</p>
                             <p className="text-sm text-gray-600">Release Year: {movie.releaseYear}</p>
                             <p className="text-sm text-gray-600">Rating: {movie.rating}</p>
-                            <Link to={`/details/${movie._id}`} className="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
-                                See Details
+                            <Link to={`/detail/${movie._id}`} className="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
+                                View Details
                             </Link>
                         </div>
                     </div>
@@ -33,3 +34,4 @@ const AllMovies = () => {
 };
 
 export default AllMovies;
+
