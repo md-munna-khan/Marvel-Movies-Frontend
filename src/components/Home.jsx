@@ -13,15 +13,24 @@ import movie3 from '../assets/movie3.png';
 import { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 
+
 const Home = () => {
   const data = useLoaderData();
   const [movies, setMovies] = useState([]);
+  const [comingMovies,setComingMovies]=useState([])
 
   useEffect(() => {
     setMovies(data);
   }, [data]);
 
   const sortedMovies = movies.sort((a, b) => b.rating - a.rating).slice(0, 6);
+
+
+  useEffect(()=>{
+    fetch('http://localhost:5000/coming-movies')
+    .then(res=>res.json())
+    .then(data=>setComingMovies(data))
+  },[])
 
   return (
     <div className='w-11/12 mx-auto my-10'>
@@ -105,6 +114,34 @@ const Home = () => {
                         See All Movies
                     </Link>
      </div>
+
+     <section className='my-10'>
+  <h2 className='text-5xl text-center text-red-600 mb-8'>Coming Soon Movies</h2>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 shadow-md p-2 ">
+    {comingMovies.map(coming => (
+      <div className="relative bg-black text-white shadow-lg rounded-lg overflow-hidden" key={coming._id}>
+        <img src={coming.Poster} alt={coming.Title} className="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105" />
+        <div className="absolute top-0 left-0 bg-red-600 text-white px-2 py-1 text-xs font-bold">
+          Dual Audio ORG
+        </div>
+        <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-70 ">
+          <h3 className="text-lg font-semibold truncate">{coming.Title}</h3>
+          <p className="text-sm">{coming.ReleaseYear}</p>
+          <div className="flex items-center mt-2">
+            <span className="bg-yellow-400 text-black px-2 py-1 rounded-md text-xs font-bold mr-2">{coming.Rating}</span>
+            <span className="text-xs">{coming.ReleaseYear}</span>
+          </div>
+          <div className='flex justify-between items-center p-2'>
+          <p className="mt-2 text-sm">Genre: {coming.Genre}</p>
+          <p className="mt-1 text-sm">Duration: {coming.Duration} mins</p>
+          </div>
+          {/* <p className="mt-2 text-sm">{coming.Summary}</p> */}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
     </div>
   );
 };
