@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home></Home>,
-        loader:()=> fetch('http://localhost:5000/movies')
+        loader:()=> fetch('http://localhost:5000/add')
       },
       {
         path:'/login',
@@ -58,11 +58,11 @@ element:<AllMovies></AllMovies>,
 loader:()=>fetch('http://localhost:5000/add')
      },
 
-     {
-      path:'/details/:id',
-      element:<PrivateRoute><MovieDetails></MovieDetails></PrivateRoute>,
-      loader:({params})=> fetch(`http://localhost:5000/movies/${params.id}`)
-     }
+    //  {
+    //   path:'/details/:id',
+    //   element:<PrivateRoute><MovieDetails></MovieDetails></PrivateRoute>,
+    //   loader:({params})=> fetch(`http://localhost:5000/movies/${params.id}`)
+    //  }
     ]
   },
 ]);
