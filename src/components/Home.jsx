@@ -107,20 +107,15 @@ const Home = () => {
           <div className="flex justify-between text-sm text-gray-300 mt-2 ">
             <div>
               <p>Genre: {movie.genre}</p>
-              <p>Release Year: {movie.releaseYear}</p>
+              <p>Release Year: {movie.release}</p>
             </div>
             <div className=" ">
               <p>Duration: {movie.duration} mins</p>
-              <span className="bg-yellow-400 text-black px-2 py-1 rounded-md text-xs font-bold mr-2">{movie.Rating}</span>
+              <span className="bg-yellow-400 text-black px-2 py-1 rounded-md text-xs font-bold mr-2">{movie.rating}</span>
             </div>
           </div>
 
-          {/* <Link
-            to={`details/${movie._id}`}
-            className="p-2 inline-block bg-blue-500 text-bg-black   rounded hover:bg-blue-700 transition"
-          >
-            View Details
-          </Link> */}
+       
 
 <Link to={`/detail/${movie._id}`} className="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
                                 View Details
