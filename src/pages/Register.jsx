@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../layouts/AuthProvider";
+import DynamicTittle from "../components/DynamicTitle";
 
 const Register = () => {
   const { createNewUser, signInWithGoogle, updateUserProfile, setUser } = useContext(AuthContext);
@@ -73,6 +74,7 @@ const Register = () => {
 
   return (
     <div>
+      <DynamicTittle></DynamicTittle>
       <div className="min-h-screen flex my-10 justify-center">
         <div className="hero bg-base-200">
           <div className="hero-content flex-col">

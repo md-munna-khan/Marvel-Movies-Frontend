@@ -5,6 +5,7 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, Link } from "react-router-dom";
 import { Rating } from "react-simple-star-rating";
+import DynamicTittle from "../components/DynamicTitle";
 
 const AllMovies = () => {
     const data = useLoaderData();
@@ -23,6 +24,7 @@ const AllMovies = () => {
         <>
             {/* Search Bar */}
             <div className="w-[400px] mx-auto mb-6">
+                <DynamicTittle></DynamicTittle>
                 <input
                     onChange={(e) => setSearch(e.target.value)}
                     type="text"

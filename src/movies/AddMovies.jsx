@@ -1,11 +1,10 @@
 
 
 
-
-
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast, Toaster } from 'react-hot-toast';
+import DynamicTittle from '../components/DynamicTitle';
 
 const AddMovies = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -39,6 +38,7 @@ const AddMovies = () => {
 
     return (
         <div className="mx-auto my-10 p-10 bg-base-200">
+            <DynamicTittle></DynamicTittle>
             <h2 className='text-center text-5xl'>Add Movies Form</h2>
             <Toaster />
             <form onSubmit={handleSubmit(onSubmit)}>

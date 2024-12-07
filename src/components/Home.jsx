@@ -12,6 +12,7 @@ import movie2 from '../assets/movie2.png';
 import movie3 from '../assets/movie3.png';
 import { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import DynamicTittle from './DynamicTitle';
 
 
 const Home = () => {
@@ -34,6 +35,7 @@ const Home = () => {
 
   return (
     <div className='w-11/12 mx-auto my-10'>
+      <DynamicTittle></DynamicTittle>
       <section className="banner mx-auto">
         <div className="flex items-center justify-center">
           <Swiper

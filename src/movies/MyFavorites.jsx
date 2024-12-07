@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../layouts/AuthProvider";
+import DynamicTittle from "../components/DynamicTitle";
 // import { useParams } from "react-router-dom";
 // import { useLoaderData } from "react-router-dom";
 
@@ -35,6 +36,8 @@ const MyFavorites = () => {
 
     return (
         <div className="w-11/12 mx-auto my-10">
+            <DynamicTittle></DynamicTittle>
+           
             <h2 className="text-4xl text-center my-4">My Favorite Movies</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {favorites.map(movie => (
