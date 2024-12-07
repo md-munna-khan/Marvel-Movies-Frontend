@@ -16,9 +16,10 @@ import Error from './components/Error';
 import AddMovies from './movies/AddMovies';
 import MyFavorite from './movies/MyFavorites';
 import PrivateRoute from './layouts/PrivateRoute';
-import MovieDetails from './movies/MovieDetails';
+
 import AllMovies from './movies/AllMovies';
 import MovieDetail from './movies/MovieDetail';
+import UpdateMovies from './movies/UpdateMovies';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -50,13 +51,20 @@ const router = createBrowserRouter([
        },
       {
         path:'/favorites',
-        element:<PrivateRoute><MyFavorite></MyFavorite></PrivateRoute>
+        element:<PrivateRoute><MyFavorite></MyFavorite></PrivateRoute>,
+       
+      },
+      {
+        path:'/update-movies/:id',
+        element:<PrivateRoute><UpdateMovies></UpdateMovies></PrivateRoute>,
+      
       },
      {
 path:'/all-movies',
 element:<AllMovies></AllMovies>,
 loader:()=>fetch('http://localhost:5000/add')
      },
+   
 
     //  {
     //   path:'/details/:id',

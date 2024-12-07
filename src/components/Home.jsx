@@ -109,9 +109,9 @@ const Home = () => {
               <p>Genre: {movie.genre}</p>
               <p>Release Year: {movie.releaseYear}</p>
             </div>
-            <div className="text-right ">
+            <div className=" ">
               <p>Duration: {movie.duration} mins</p>
-              <p className="text-yellow-400">Rating: {movie.rating}</p>
+              <span className="bg-yellow-400 text-black px-2 py-1 rounded-md text-xs font-bold mr-2">{movie.Rating}</span>
             </div>
           </div>
 
