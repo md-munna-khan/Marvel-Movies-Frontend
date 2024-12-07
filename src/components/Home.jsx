@@ -186,7 +186,7 @@ const Home = () => {
     ))}
   </div>
 </section>
-<section className="py-10 bg-base-200 text-bg-black p-4 rounded-md">
+<section className={`py-10 bg-base-200 text-bg-black p-4 rounded-md ${isdark? 'text-black': ''}`}>
       <h2 className="text-4xl text-center text-red-500 my-6">Movies Related Questions</h2>
 
       <div className="collapse collapse-plus text-bg-black">

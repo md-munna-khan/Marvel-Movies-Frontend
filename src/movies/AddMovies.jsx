@@ -1,12 +1,16 @@
 
 
-import React, { useState } from 'react';
+
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast, Toaster } from 'react-hot-toast';
 import Swal from 'sweetalert2';
 import DynamicTitle from '../components/DynamicTitle';
+import { AuthContext } from '../layouts/AuthProvider';
+import ReactStars from 'react-stars'; // Import react-stars
 
 const AddMovies = () => {
+    const { isdark } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [rating, setRating] = useState(0); // Store the rating as a number
 
@@ -44,7 +48,7 @@ const AddMovies = () => {
     return (
         <div className="mx-auto my-10 p-4 bg-base-200">
             <DynamicTitle title="Add Movies" />
-            <h2 className='text-center text-2xl lg:text-5xl'>Add Movies Form</h2>
+            <h2 className={`text-center text-2xl lg:text-5xl ${isdark ? 'text-black' : ''} `}>Add Movies Form</h2>
             <Toaster />
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control">
@@ -128,25 +132,25 @@ const AddMovies = () => {
                     </select>
                     {errors.release && <span className="text-red-500">{errors.release.message}</span>}
                 </div>
+                
+                {/* Rating Star */}
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Rating</span>
                     </label>
-                    <input
-                        type="number"
-                        min="0"
-                        max="10"
-                        step="0.1"
-                        {...register('rating', {
-                            required: 'Rating is required',
-                            validate: value => value > 0 || 'Rating must be greater than 0'
-                        })}
-                        className="input input-bordered"
-                        value={rating}
-                        onChange={(e) => setRating(parseFloat(e.target.value))}
-                    />
+                    <div className="flex items-center">
+                        <ReactStars
+                            count={5}
+                            value={rating}
+                            onChange={setRating}
+                            size={24}
+                            activeColor="#ffd700"
+                        />
+                        <span className="ml-2 text-sm">{rating}</span>
+                    </div>
                     {errors.rating && <span className="text-red-500">{errors.rating.message}</span>}
                 </div>
+
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Summary</span>
