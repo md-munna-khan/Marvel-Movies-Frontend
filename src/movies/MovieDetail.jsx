@@ -1,5 +1,6 @@
 
 
+
 // import { useNavigate, useLoaderData, Link } from 'react-router-dom';
 // import { Rating } from 'react-simple-star-rating';
 // import { useState, useEffect, useContext } from 'react';
@@ -7,11 +8,10 @@
 // import Swal from 'sweetalert2';
 
 // const MovieDetail = () => {
-
-//     const {user}=useContext(AuthContext)
+//     const { user } = useContext(AuthContext);
 //     const movieDataFromLoader = useLoaderData();
 //     const [movieData, setMovieData] = useState(movieDataFromLoader);
-    
+
 //     const navigate = useNavigate();
 
 //     // Update movie state if movieData is updated from the loader or other actions
@@ -26,42 +26,35 @@
 //             .then((res) => res.json())
 //             .then((data) => {
 //                 if (data.deletedCount > 0) {
-                   
 //                     Swal.fire({
 //                         title: 'Deleted',
-                      
 //                         icon: 'success',
-                        
-//                       })
-//                       navigate('/all-movies');
+//                     });
+//                     navigate('/all-movies');
 //                 }
 //             });
 //     };
 
 //     const addFavorite = () => {
+//         const { poster, title, genre, duration, release, summary, rating } = movieData;
+//         const email = user.email;
 
-//         const poster = movieData.poster ;
-//         const title =movieData.title ;
-//         const genre =movieData.genre;
-//         const duration =movieData.duration;
-//         const release = movieData.release;
-//         const summary = movieData.summary;
-//         const rating = movieData.rating;
-//         const email = user.email
-        
-//         const movieInfo = { poster, title, genre, duration, release, summary, email,rating};
-
+//         const movieInfo = { poster, title, genre, duration, release, summary, email, rating };
 
 //         fetch(`http://localhost:5000/favorites`, {
 //             method: 'POST',
 //             headers: {
-//                 'content-type': 'application/json',
+//                 'Content-Type': 'application/json',
 //             },
 //             body: JSON.stringify(movieInfo),
 //         })
 //             .then((res) => res.json())
 //             .then((data) => {
 //                 if (data.insertedId) {
+//                     Swal.fire({
+//                         title: 'Added to Favorites',
+//                         icon: 'success',
+//                     });
 //                     navigate('/favorites');
 //                 }
 //             });
@@ -80,16 +73,15 @@
 //                     <h3 className="text-2xl font-semibold mb-2">{movieData.title}</h3>
 //                     <p className="text-sm text-gray-600 mb-2">Genre: {movieData.genre}</p>
 //                     <p className="text-sm text-gray-600 mb-2">Duration: {movieData.duration} minutes</p>
-//                     <p className="text-sm text-gray-600 mb-2">Release Year: {movieData.releaseYear}</p>
-//                     <div className="text-sm text-gray-600 mb-2">
+//                     <p className="text-sm text-gray-600 mb-2">Release Year: {movieData.release}</p>
+//                     <div className="text-sm text-gray-600 mb-2 flex">
 //                         Rating: <Rating readonly ratingValue={movieData.rating * 10} size={20} />
 //                     </div>
 //                     <p className="text-sm text-gray-600 mb-4">Details: {movieData.summary}</p>
 //                     <div className="space-x-3 mb-4">
 //                         <button onClick={() => handleDelete(movieData._id)} className="btn btn-error">Delete</button>
-//                         {/* <Link to={'/add-favorites'} className="btn btn-success">Add to Favorite</Link> */}
-//                       <Link to='/favorites'>    <button onClick={addFavorite}  className="btn btn-success">Add to Favorite</button></Link>
-//                         <Link to={`/update-movies/${movieData._id}`} className="btn btn-warning ">Update Movies</Link>
+//                         <button onClick={addFavorite} className="btn btn-success">Add to Favorite</button>
+//                         <Link to={`/update-movies/${movieData._id}`} className="btn btn-warning">Update Movies</Link>
 //                     </div>
 //                     <button onClick={() => navigate('/all-movies')} className="inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
 //                         See All Movies
@@ -101,7 +93,6 @@
 // };
 
 // export default MovieDetail;
-
 
 import { useNavigate, useLoaderData, Link } from 'react-router-dom';
 import { Rating } from 'react-simple-star-rating';
@@ -129,8 +120,10 @@ const MovieDetail = () => {
             .then((data) => {
                 if (data.deletedCount > 0) {
                     Swal.fire({
-                        title: 'Deleted',
+                        title: 'Deleted!',
+                        text: 'The movie has been deleted.',
                         icon: 'success',
+                        confirmButtonText: 'OK'
                     });
                     navigate('/all-movies');
                 }
@@ -154,10 +147,11 @@ const MovieDetail = () => {
             .then((data) => {
                 if (data.insertedId) {
                     Swal.fire({
-                        title: 'Added to Favorites',
+                        title: 'Added to Favorites!',
+                        text: 'The movie has been added to your favorites.',
                         icon: 'success',
+                        confirmButtonText: 'OK'
                     });
-                    navigate('/favorites');
                 }
             });
     };
@@ -181,9 +175,9 @@ const MovieDetail = () => {
                     </div>
                     <p className="text-sm text-gray-600 mb-4">Details: {movieData.summary}</p>
                     <div className="space-x-3 mb-4">
-                        <button onClick={() => handleDelete(movieData._id)} className="btn btn-error">Delete</button>
-                        <button onClick={addFavorite} className="btn btn-success">Add to Favorite</button>
-                        <Link to={`/update-movies/${movieData._id}`} className="btn btn-warning">Update Movies</Link>
+                        <button onClick={() => handleDelete(movieData._id)} className="btn btn-error bg-red-600 hover:bg-red-700 text-white">Delete</button>
+                        <button onClick={addFavorite} className="btn btn-success bg-green-600 hover:bg-green-700 text-white">Add to Favorite</button>
+                        <Link to={`/update-movies/${movieData._id}`} className="btn btn-warning bg-yellow-500 hover:bg-yellow-600 text-white">Update Movie</Link>
                     </div>
                     <button onClick={() => navigate('/all-movies')} className="inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
                         See All Movies

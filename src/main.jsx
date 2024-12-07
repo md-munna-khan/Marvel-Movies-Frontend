@@ -20,6 +20,7 @@ import PrivateRoute from './layouts/PrivateRoute';
 import AllMovies from './movies/AllMovies';
 import MovieDetail from './movies/MovieDetail';
 import UpdateMovies from './movies/UpdateMovies';
+import CartoonMovies from './movies/CartoonMovies';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path:'/register',
         element:<Register></Register>
+      },
+      {
+        path:'/cartoon',
+        element:<CartoonMovies></CartoonMovies>
       },
       {
         path:'/movies',

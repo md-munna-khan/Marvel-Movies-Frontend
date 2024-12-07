@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import { AuthContext } from "../layouts/AuthProvider";
+
 const Footer = () => {
+  const {isdark}=useContext(AuthContext)
   return (
-    <footer className="footer bg-base-200 text-base-content p-10">
+    <footer className={`footer bg-base-200 text-base-content p-10 ${isdark? 'bg-black text-white' :''}`}>
       <aside>
        
         <p className="text-red-500 text-4xl">

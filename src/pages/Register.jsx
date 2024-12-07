@@ -5,6 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../layouts/AuthProvider";
 import DynamicTittle from "../components/DynamicTitle";
+import googleImage from '../../public/googleimg.png'
 
 const Register = () => {
   const { createNewUser, signInWithGoogle, updateUserProfile, setUser } = useContext(AuthContext);
@@ -24,12 +25,12 @@ const Register = () => {
     setErrorMessage('');
     setSuccessMessage('');
 
-    // const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$/;
-    // if (!passwordRegex.test(password)) {
-    //   setErrorMessage("Password must contain at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long.");
-    //   toast.error("Password must contain at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long.");
-    //   return;
-    // }
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$/;
+    if (!passwordRegex.test(password)) {
+      setErrorMessage("Password must contain at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long.");
+      toast.error("Password must contain at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long.");
+      return;
+    }
 
     createNewUser(email, password)
       .then((result) => {
@@ -109,9 +110,13 @@ const Register = () => {
                   <button className="btn btn-primary">Register</button>
                 </div>
                 <p>Already have an account? Please <Link className="text-red-600" to="/login">Login</Link></p>
+              
+              
                 <button type="button" onClick={handleGoggleSignIn} className="border flex justify-center rounded-lg items-center p-2 my-2 font-bold">
-                  Log In With Google
+                <img className="w-6 ml-2" src={googleImage} alt="" /> Log In With Google
+                 
                 </button>
+                
               </form>
             </div>
           </div>

@@ -7,15 +7,18 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
-import movie1 from '../assets/movie1.png';
-import movie2 from '../assets/movie2.png';
-import movie3 from '../assets/movie3.png';
-import { useEffect, useState } from 'react';
+import movie7 from '../assets/movie7.jpg';
+import movie5 from '../assets/movie5.jpg';
+import movie6 from '../assets/movie6.jpg';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import DynamicTittle from './DynamicTitle';
-
+import ReactStars from "react-stars";
+import { AuthContext } from '../layouts/AuthProvider';
 
 const Home = () => {
+
+  const {isdark}=useContext(AuthContext)
   const data = useLoaderData();
   const [movies, setMovies] = useState([]);
   const [comingMovies,setComingMovies]=useState([])
@@ -34,103 +37,125 @@ const Home = () => {
   },[])
 
   return (
-    <div className='w-11/12 mx-auto my-10'>
+    <>
+    <div className={`w-11/12 mx-auto my-10 ${isdark? 'bg-black text-white':''}` }>
       <DynamicTittle></DynamicTittle>
-      <section className="banner mx-auto">
-        <div className="flex items-center justify-center">
-          <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y, ]}
-            spaceBetween={50}
-            slidesPerView={1}
-            navigation
-            pagination={{ clickable: true }}
-            scrollbar={{ draggable: true }}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
-            loop={true}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log('slide change')}
-          >
-            <SwiperSlide>
-              <div className="relative">
-                <img src={movie1} alt="Movie 1" className="w-full h-64 md:h-96 lg:h-[800px] object-cover" />
-                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                  <div className="text-center text-white px-4">
-                    <h2 className="text-3xl md:text-5xl font-bold">Lorem ipsum</h2>
-                    <p className="mt-4 text-lg md:text-xl">A brief description of Movie 1. This could include a tagline or a short synopsis.</p>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="relative">
-                <img src={movie2} alt="Movie 2" className="w-full h-64 md:h-96 lg:h-[800px] object-cover" />
-                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                  <div className="text-center text-bg-black px-4">
-                    <h2 className="text-3xl md:text-5xl font-bold">Spider Man</h2>
-                    <p className="mt-4 text-lg md:text-xl">A brief description of Movie 2. This could include a tagline or a short synopsis.</p>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="relative">
-                <img src={movie3} alt="Movie 3" className="w-full h-64 md:h-96 lg:h-[800px] object-cover" />
-                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                  <div className="text-center text-bg-black px-4">
-                    <h2 className="text-3xl md:text-5xl font-bold">Amazon jungle</h2>
-                    <p className="mt-4 text-lg md:text-xl">A brief description of Movie 3. This could include a tagline or a short synopsis.</p>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-          </Swiper>
-        </div>
-      </section>
-    
-    <section className="py-10">
-  <h2 className="text-4xl text-center my-4">Featured Movies</h2>
-  <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-4 shadow-md ">
-    {sortedMovies.map(movie => (
-      <div className="relative bg-black text-bg-black shadow-lg rounded-lg overflow-hidden" key={movie._id}>
-        <img
-          className="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
-          src={movie.poster}
-          alt={movie.title}
-        />
-        <div className="absolute top-0 left-0 bg-red-500 text-black px-2 py-1 text-xs font-bold">
-          Dual Audio ORG
-        </div>
-        <div className="absolute bottom-0 left-0 w-full bg-black text-white bg-opacity-70 ">
-          <h3 className="text-lg font-semibold truncate">{movie.title}</h3>
-          
-          <div className="flex justify-between text-sm text-gray-300 mt-2 ">
-            <div>
-              <p>Genre: {movie.genre}</p>
-              <p>Release Year: {movie.release}</p>
-            </div>
-            <div className=" ">
-              <p>Duration: {movie.duration} mins</p>
-              <span className="bg-yellow-400 text-black px-2 py-1 rounded-md text-xs font-bold mr-2">{movie.rating}</span>
+     
+    <section className= "banner mx-auto ">
+  <div className="flex items-center justify-center">
+    <Swiper
+      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      spaceBetween={50}
+      slidesPerView={1}
+      navigation
+      pagination={{ clickable: true }}
+      scrollbar={{ draggable: true }}
+      autoplay={{
+        delay: 3000,
+        disableOnInteraction: false,
+      }}
+      loop={true}
+      onSwiper={(swiper) => console.log(swiper)}
+      onSlideChange={() => console.log('slide change')}
+    >
+      <SwiperSlide>
+        <div className="relative">
+          <img src={movie7} alt="Movie 1" className="w-full h-64 md:h-96 lg:h-[800px] object-cover" style={{ objectFit: 'cover' }} />
+          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4">
+            <div className="text-left text-white">
+              <h2 className="text-3xl md:text-5xl font-bold">Avengers</h2>
+              <p className="mt-2 text-lg md:text-xl">Superman: Doomsday (2007) BluRay 480p & 720p | GDrive</p>
             </div>
           </div>
-
-       
-
-<Link to={`/detail/${movie._id}`} className="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
-                                View Details
-                            </Link>
         </div>
-      </div>
-    ))}
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="relative">
+          <img src={movie5} alt="Movie 2" className="w-full h-64 md:h-96 lg:h-[800px] object-cover" style={{ objectFit: 'cover' }} />
+          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4">
+            <div className="text-left text-white">
+              <h2 className="text-3xl md:text-5xl font-bold">Captain America</h2>
+              <p className="mt-2 text-lg md:text-xl">Captain America: Civil War (2016) Dual Audio BluRay 480p, 720p & 1080p [Hindi-English] | GDrive</p>
+            </div>
+          </div>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="relative">
+          <img src={movie6} alt="Movie 3" className="w-full h-64 md:h-96 lg:h-[800px] object-cover" style={{ objectFit: 'cover' }} />
+          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4">
+            <div className="text-left text-white">
+              <h2 className="text-3xl md:text-5xl font-bold">Thor</h2>
+              <p className="mt-2 text-lg md:text-xl">Thor: Love and Thunder (2022) Dual Audio [Hindi ORG & ENG] IMAX WEB-DL 300MB  360p, 480p, 720p, 1080p & 2160p 4K UHD | GDRive</p>
+            </div>
+          </div>
+        </div>
+      </SwiperSlide>
+    </Swiper>
   </div>
 </section>
 
 
+
+
+
+<section className="py-10">
+      <h2 className="text-4xl text-center my-4">Featured Movies</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-4 shadow-md ">
+        {sortedMovies.map((movie) => (
+          <div
+            className="relative bg-black text-bg-black shadow-lg rounded-lg overflow-hidden"
+            key={movie._id}
+          >
+            <img
+              className="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+              src={movie.poster}
+              alt={movie.title}
+            />
+            <div className="absolute top-0 left-0 bg-red-500 text-black px-2 py-1 text-xs font-bold">
+              Dual Audio ORG
+            </div>
+            <div className="absolute bottom-0 left-0 w-full bg-black text-white bg-opacity-70 p-4">
+              <h3 className="text-lg font-semibold truncate">{movie.title}</h3>
+
+              <div className="flex justify-between text-sm text-gray-300 mt-2 ">
+                <div>
+                  <p>Genre: {movie.genre}</p>
+                  <p>Release Year: {movie.release}</p>
+                </div>
+                <div className="">
+                  <p>Duration: {movie.duration} mins</p>
+                  <div className="flex items-center">
+                    <span className="bg-yellow-400 text-black px-2 py-1 rounded-md text-xs font-bold mr-2">
+                      {movie.rating}
+                    </span>
+                    <ReactStars
+                      count={5}
+                      value={parseInt(movie.rating)}
+                      size={22}
+                      edit={false}
+                      activeColor="#ffd700"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <Link
+                to={`/detail/${movie._id}`}
+                className="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
+              >
+                View Details
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+
+
      <div className='mx-auto text-center'>
-     <Link to="/all-movies" className="mt-4  inline-block bg-blue-500 text-bg-black py-2 px-4 rounded hover:bg-blue-700 transition">
+     <Link to="/all-movies" className="mt-4  inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
                         See All Movies
                     </Link>
      </div>
@@ -248,7 +273,11 @@ const Home = () => {
       </div>
     </section>
     </div>
+    </>
   );
 };
 
 export default Home;
+
+
+

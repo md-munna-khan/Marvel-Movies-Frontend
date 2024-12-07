@@ -2,23 +2,27 @@ import {  Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../layouts/AuthProvider";
 import { useContext } from "react";
 import { FaUser } from "react-icons/fa";
-
+import { CiDark } from "react-icons/ci";
+import { MdOutlineLightMode } from "react-icons/md";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut,setIsdark,isdark } = useContext(AuthContext);
     const links =(
 
-<>
+<div className="lg:flex text-2xl" >
+
 <li><NavLink to='/'>Home</NavLink></li>
 <li><NavLink to='/login'>Login</NavLink></li>
 <li><NavLink to='/register'>Register</NavLink></li>
 <li><NavLink to='/movies'>Add Movies</NavLink></li>
 <li><NavLink to='/favorites'>My Favorites</NavLink></li>
 <li><NavLink to='/all-movies'>All Movies</NavLink></li>
-</>
+<li><NavLink to='/cartoon'>Cartoon Movies</NavLink></li>
+
+</div>
     );
     return (
-        <div className="navbar bg-base-100">
+        <div className={`navbar bg-base-100 ${isdark? 'bg-black': ''}`}>
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -51,6 +55,9 @@ const Navbar = () => {
   <div className="navbar-end items-center lg:flex-col">
         {user && user.email ? (
           <div className="relative flex items-center gap-4">
+            <div onClick={()=> setIsdark(!isdark)} className="theme bg-white border p-1 rounded-full text-xl cursor-pointer">
+              {isdark? <CiDark />: <MdOutlineLightMode />}
+            </div>
             <div className="group relative">
               <img className="w-[40px] h-[40px] rounded-full cursor-pointer" src={user?.photoURL || <FaUser></FaUser>} alt="User" />
               <div className="absolute left-1/2 transform -translate-x-1/2 top-full mb-2 hidden group-hover:block bg-gray-700 text-white text-sm p-2 rounded">

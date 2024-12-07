@@ -3,7 +3,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../layouts/AuthProvider";
 import DynamicTittle from "../components/DynamicTitle";
-
+import googleImage from '../../public/googleimg.png'
 
 const Login = () => {
   const {signInUser,signInWithGoogle } = useContext(AuthContext)
@@ -94,7 +94,7 @@ const Login = () => {
               }
              {success && <p className="text-green-600">{success}</p>} */}
                 <button type="button" onClick={handleGoggleSignIn} className=" border flex  justify-center rounded-lg items-center p-2 my-2  font-bold ">
-              {/* <img className="w-6 ml-2" src={googleImg} alt="" /> */}
+              <img className="w-6 ml-2" src={googleImage} alt="" />
                   Log In With Google</button>
             </form>
            <Toaster></Toaster>

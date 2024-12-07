@@ -1,10 +1,10 @@
 
 
-
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast, Toaster } from 'react-hot-toast';
-import DynamicTittle from '../components/DynamicTitle';
+import Swal from 'sweetalert2';
+import DynamicTitle from '../components/DynamicTitle';
 
 const AddMovies = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -25,7 +25,12 @@ const AddMovies = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    toast.success('Movie added successfully!');
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Movie added successfully!',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    });
                 }
             });
 
@@ -37,9 +42,9 @@ const AddMovies = () => {
     const years = [2024, 2023, 2022, 2021, 2020];
 
     return (
-        <div className="mx-auto my-10 p-10 bg-base-200">
-            <DynamicTittle></DynamicTittle>
-            <h2 className='text-center text-5xl'>Add Movies Form</h2>
+        <div className="mx-auto my-10 p-4 bg-base-200">
+            <DynamicTitle title="Add Movies" />
+            <h2 className='text-center text-2xl lg:text-5xl'>Add Movies Form</h2>
             <Toaster />
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control">
@@ -159,10 +164,13 @@ const AddMovies = () => {
                     />
                     {errors.summary && <span className="text-red-500">{errors.summary.message}</span>}
                 </div>
-                <button className="btn btn-warning w-full" type="submit">Add Movie</button>
+                <button className="btn my-4 btn-warning w-full" type="submit">Add Movie</button>
             </form>
         </div>
     );
 };
 
 export default AddMovies;
+
+
+

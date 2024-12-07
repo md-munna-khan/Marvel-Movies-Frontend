@@ -8,6 +8,7 @@ const googleProvider= new GoogleAuthProvider()
 const AuthProvider = ({children}) => {
     const [user,setUser]=useState(null)
     const [loading,setLoading]=useState(true)
+    const[isdark,setIsdark]=useState(false)
 
 // new user
 const createNewUser = (email,password)=>{
@@ -44,7 +45,9 @@ loading,
 logOut,
 signInUser,
 signInWithGoogle,
-updateUserProfile
+updateUserProfile,
+setIsdark,
+isdark
     }
      // state change
    useEffect(()=>{
