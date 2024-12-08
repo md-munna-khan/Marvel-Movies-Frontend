@@ -13,7 +13,7 @@
 //     const [favorites, setFavorites] = useState([]);
 
 //     useEffect(() => {
-//         fetch(`http://localhost:5000/favorites/${user.email}`)
+//         fetch(`https://movies-serversite.vercel.app/favorites/${user.email}`)
 //             .then(res => res.json())
 //             .then(data => setFavorites(data))
 //             .catch(error => console.error("Error fetching favorite movies:", error));
@@ -24,7 +24,7 @@
 //     const handleDeleteFavorite = async (_id) => {
 
 //         try {
-//             const response = await fetch(`http://localhost:5000/favorites/${_id}`, { method: "DELETE" });
+//             const response = await fetch(`https://movies-serversite.vercel.app/favorites/${_id}`, { method: "DELETE" });
 //             const data = await response.json();
 //             if (data.deletedCount > 0) {
 //                 setFavorites(favorites.filter(movie => movie._id !== _id));
@@ -67,7 +67,7 @@ const MyFavorites = () => {
     const [favorites, setFavorites] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/favorites/${user.email}`)
+        fetch(`https://movies-serversite.vercel.app/favorites/${user.email}`)
             .then(res => res.json())
             .then(data => setFavorites(data))
             .catch(error => console.error("Error fetching favorite movies:", error));
@@ -75,7 +75,7 @@ const MyFavorites = () => {
 
     const handleDeleteFavorite = async (_id) => {
         try {
-            const response = await fetch(`http://localhost:5000/favorites/${_id}`, { method: "DELETE" });
+            const response = await fetch(`https://movies-serversite.vercel.app/favorites/${_id}`, { method: "DELETE" });
             const data = await response.json();
             if (data.deletedCount > 0) {
                 setFavorites(favorites.filter(movie => movie._id !== _id));

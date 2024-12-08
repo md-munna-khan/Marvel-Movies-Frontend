@@ -50,7 +50,7 @@ const Login = () => {
     return (
         <div>
           <DynamicTittle></DynamicTittle>
-                  <div className="min-h-screen flex justify-center">
+                  <div className="min-h-screen my-10 flex justify-center">
        <div className="hero bg-base-200 ">
         <div className="hero-content flex-col ">
          

@@ -13,7 +13,7 @@ const AllMovies = () => {
 
     // Fetching movie data with search functionality
     useEffect(() => {
-        fetch(`http://localhost:5000/add?search=${search}`)
+        fetch(`https://movies-serversite.vercel.app/add?search=${search}`)
             .then(res => res.json())
             .then(data => setAllMovies(data))
             .catch(error => console.error("Error fetching movies:", error));

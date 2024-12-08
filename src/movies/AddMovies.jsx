@@ -1,25 +1,24 @@
 
 
 
+
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast, Toaster } from 'react-hot-toast';
 import Swal from 'sweetalert2';
 import DynamicTitle from '../components/DynamicTitle';
 import { AuthContext } from '../layouts/AuthProvider';
-import ReactStars from 'react-stars'; // Import react-stars
+import ReactStars from 'react-stars';
 
 const AddMovies = () => {
     const { isdark } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const [rating, setRating] = useState(0); // Store the rating as a number
+    const [rating, setRating] = useState(0);
 
-    // Handle form submission
     const onSubmit = (data) => {
         const movieInfo = { ...data, rating };
 
-        // Submit movie data
-        fetch('http://localhost:5000/add', {
+        fetch('https://movies-serversite.vercel.app/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -38,7 +37,6 @@ const AddMovies = () => {
                 }
             });
 
-        // Reset form and rating
         setRating(0);
     };
 
@@ -46,11 +44,11 @@ const AddMovies = () => {
     const years = [2024, 2023, 2022, 2021, 2020];
 
     return (
-        <div className="mx-auto my-10 p-4 bg-base-200">
+        <div className="mx-auto my-10 p-4  bg-base-200">
             <DynamicTitle title="Add Movies" />
-            <h2 className={`text-center text-2xl lg:text-5xl ${isdark ? 'text-black' : ''} `}>Add Movies Form</h2>
+            <h2 className={`text-center text-2xl lg:text-5xl ${isdark ? 'text-black' : ''}`}>Add Movies Form</h2>
             <Toaster />
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Movie Poster</span>
@@ -69,6 +67,7 @@ const AddMovies = () => {
                     />
                     {errors.poster && <span className="text-red-500">{errors.poster.message}</span>}
                 </div>
+
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Movie Title</span>
@@ -87,6 +86,7 @@ const AddMovies = () => {
                     />
                     {errors.title && <span className="text-red-500">{errors.title.message}</span>}
                 </div>
+
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Movie Genre</span>
@@ -102,6 +102,7 @@ const AddMovies = () => {
                     </select>
                     {errors.genre && <span className="text-red-500">{errors.genre.message}</span>}
                 </div>
+
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Movie Duration (minutes)</span>
@@ -117,6 +118,7 @@ const AddMovies = () => {
                     />
                     {errors.duration && <span className="text-red-500">{errors.duration.message}</span>}
                 </div>
+
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Release Year</span>
@@ -132,9 +134,9 @@ const AddMovies = () => {
                     </select>
                     {errors.release && <span className="text-red-500">{errors.release.message}</span>}
                 </div>
-                
+
                 {/* Rating Star */}
-                <div className="form-control">
+                <div className="form-control col-span-1">
                     <label className="label">
                         <span className="label-text">Rating</span>
                     </label>
@@ -151,7 +153,7 @@ const AddMovies = () => {
                     {errors.rating && <span className="text-red-500">{errors.rating.message}</span>}
                 </div>
 
-                <div className="form-control">
+                <div className="form-control col-span-1">
                     <label className="label">
                         <span className="label-text">Summary</span>
                     </label>
@@ -168,13 +170,13 @@ const AddMovies = () => {
                     />
                     {errors.summary && <span className="text-red-500">{errors.summary.message}</span>}
                 </div>
-                <button className="btn my-4 btn-warning w-full" type="submit">Add Movie</button>
+                
+              
+               <button className="btn my-4 btn-warning w-full" type="submit">Add Movie</button>
+              
             </form>
         </div>
     );
 };
 
 export default AddMovies;
-
-
-

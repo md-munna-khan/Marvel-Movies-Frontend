@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home></Home>,
-        loader:()=> fetch('http://localhost:5000/add')
+        loader:()=> fetch('https://movies-serversite.vercel.app/add')
       },
       {
         path:'/login',
@@ -52,12 +52,12 @@ const router = createBrowserRouter([
       {
 path:'/update-movies',
 element:<PrivateRoute><UpdateMovies></UpdateMovies></PrivateRoute>,
-loader:({params})=> fetch(`http://localhost:5000/add/${params.id}`)
+loader:({params})=> fetch(`https://movies-serversite.vercel.app/add/${params.id}`)
       },
       {
         path:'/detail/:id',
         element:<PrivateRoute><MovieDetail></MovieDetail></PrivateRoute>,
-        loader:({params})=> fetch(`http://localhost:5000/add/${params.id}`)
+        loader:({params})=> fetch(`https://movies-serversite.vercel.app/add/${params.id}`)
        },
       {
         path:'/favorites',
@@ -72,14 +72,14 @@ loader:({params})=> fetch(`http://localhost:5000/add/${params.id}`)
      {
 path:'/all-movies',
 element:<AllMovies></AllMovies>,
-loader:()=>fetch('http://localhost:5000/add')
+loader:()=>fetch('https://movies-serversite.vercel.app/add')
      },
    
 
     //  {
     //   path:'/details/:id',
     //   element:<PrivateRoute><MovieDetails></MovieDetails></PrivateRoute>,
-    //   loader:({params})=> fetch(`http://localhost:5000/movies/${params.id}`)
+    //   loader:({params})=> fetch(`https://movies-serversite.vercel.app/movies/${params.id}`)
     //  }
     ]
   },

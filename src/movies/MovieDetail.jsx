@@ -21,7 +21,7 @@ const MovieDetail = () => {
     }, [movieDataFromLoader]);
 
     const handleDelete = (_id) => {
-        fetch(`http://localhost:5000/add/${_id}`, {
+        fetch(`https://movies-serversite.vercel.app/add/${_id}`, {
             method: 'DELETE',
         })
             .then((res) => res.json())
@@ -44,7 +44,7 @@ const MovieDetail = () => {
 
         const movieInfo = { poster, title, genre, duration, release, summary, email, rating };
 
-        fetch(`http://localhost:5000/favorites`, {
+        fetch(`https://movies-serversite.vercel.app/favorites`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -74,11 +74,11 @@ const MovieDetail = () => {
                     alt={movieData.title}
                 />
                 <div className="lg:ml-8 p-4 text-center lg:text-left">
-                    <h3 className="text-2xl font-bold mb-2">{movieData.title}</h3> {/* Title now has bold font */}
-                    <p className="text-sm text-gray-600 mb-2">Genre: {movieData.genre}</p>
-                    <p className="text-sm text-gray-600 mb-2">Duration: {movieData.duration} minutes</p>
-                    <p className="text-sm text-gray-600 mb-2">Release Year: {movieData.release}</p>
-                    <div className="text-sm text-gray-600 mb-2 flex">
+                    <h3 className="lg:text-4xl text-2xl font-bold mb-2">{movieData.title}</h3> {/* Title now has bold font */}
+                    <p className="text-2xl text-gray-600 mb-2">Genre: {movieData.genre}</p>
+                    <p className="text-2xl text-gray-600 mb-2">Duration: {movieData.duration} minutes</p>
+                    <p className="text-2xl text-gray-600 mb-2">Release Year: {movieData.release}</p>
+                    <div className="text-2xl text-gray-600 mb-2 flex">
                         Rating:
                         <ReactStars
                             count={5}
@@ -90,11 +90,11 @@ const MovieDetail = () => {
                     </div>
                     <p className="text-sm text-gray-600 mb-4">Details: {movieData.summary}</p>
                     <div className="space-x-3 mb-4">
-                        <button onClick={() => handleDelete(movieData._id)} className="btn btn-error bg-red-600 hover:bg-red-700 text-white">Delete</button>
-                        <button onClick={addFavorite} className="btn btn-success bg-green-600 hover:bg-green-700 text-white">Add to Favorite</button>
-                        <Link to={`/update-movies/${movieData._id}`} className="btn btn-warning bg-yellow-500 hover:bg-yellow-600 text-white">Update Movie</Link>
+                        <button onClick={() => handleDelete(movieData._id)} className="btn  bg-red-600 hover:bg-blue-700 text-white">Delete</button>
+                        <button onClick={addFavorite} className="btn  bg-blue-600 hover:bg-blue-700 text-white">Add to Favorite</button>
+                        <Link to={`/update-movies/${movieData._id}`} className="btn  bg-blue-500 hover:bg-blue-600 text-white">Update Movie</Link>
                     </div>
-                    <button onClick={() => navigate('/all-movies')} className="inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
+                    <button onClick={() => navigate('/all-movies')} className="inline-block w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
                         See All Movies
                     </button>
                 </div>

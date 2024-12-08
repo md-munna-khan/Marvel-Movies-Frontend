@@ -31,7 +31,7 @@ const Home = () => {
 
 
   useEffect(()=>{
-    fetch('http://localhost:5000/coming-movies')
+    fetch('https://movies-serversite.vercel.app/coming-movies')
     .then(res=>res.json())
     .then(data=>setComingMovies(data))
   },[])
@@ -61,10 +61,10 @@ const Home = () => {
       <SwiperSlide>
         <div className="relative">
           <img src={movie7} alt="Movie 1" className="w-full h-64 md:h-96 lg:h-[800px] object-cover" style={{ objectFit: 'cover' }} />
-          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4">
+          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-2">
             <div className="text-left text-white">
-              <h2 className="text-3xl md:text-5xl font-bold">Avengers</h2>
-              <p className="mt-2 text-lg md:text-xl">Superman: Doomsday (2007) BluRay 480p & 720p | GDrive</p>
+              <h2 className="text-2xl md:text-5xl font-bold">Avengers</h2>
+              <p className="mt-2 text-sm md:text-xl">Superman: Doomsday (2007) BluRay 480p & 720p | GDrive</p>
             </div>
           </div>
         </div>
@@ -72,10 +72,10 @@ const Home = () => {
       <SwiperSlide>
         <div className="relative">
           <img src={movie5} alt="Movie 2" className="w-full h-64 md:h-96 lg:h-[800px] object-cover" style={{ objectFit: 'cover' }} />
-          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4">
+          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-2">
             <div className="text-left text-white">
-              <h2 className="text-3xl md:text-5xl font-bold">Captain America</h2>
-              <p className="mt-2 text-lg md:text-xl">Captain America: Civil War (2016) Dual Audio BluRay 480p, 720p & 1080p [Hindi-English] | GDrive</p>
+              <h2 className="text-2xl md:text-5xl font-bold">Captain America</h2>
+              <p className="mt-2 text-sm md:text-xl">Captain America: Civil War (2016) Dual Audio BluRay 480p, 720p & 1080p [Hindi-English] | GDrive</p>
             </div>
           </div>
         </div>
@@ -83,10 +83,10 @@ const Home = () => {
       <SwiperSlide>
         <div className="relative">
           <img src={movie6} alt="Movie 3" className="w-full h-64 md:h-96 lg:h-[800px] object-cover" style={{ objectFit: 'cover' }} />
-          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4">
+          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-2">
             <div className="text-left text-white">
-              <h2 className="text-3xl md:text-5xl font-bold">Thor</h2>
-              <p className="mt-2 text-lg md:text-xl">Thor: Love and Thunder (2022) Dual Audio [Hindi ORG & ENG] IMAX WEB-DL 300MB  360p, 480p, 720p, 1080p & 2160p 4K UHD | GDRive</p>
+              <h2 className="text-2xl md:text-5xl font-bold">Thor</h2>
+              <p className="mt-2 text-sm md:text-xl">Thor: Love and Thunder (2022) Dual Audio [Hindi ORG & ENG] IMAX WEB-DL 300MB  360p, 480p, 720p, 1080p & 2160p 4K UHD | GDRive</p>
             </div>
           </div>
         </div>
@@ -100,7 +100,7 @@ const Home = () => {
 
 
 <section className="py-10">
-      <h2 className="text-4xl text-center my-4">Featured Movies</h2>
+      <h2 className="lg:text-4xl text-3xl text-center my-4">Featured Movies</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-4 shadow-md ">
         {sortedMovies.map((movie) => (
           <div
@@ -115,10 +115,10 @@ const Home = () => {
             <div className="absolute top-0 left-0 bg-red-500 text-black px-2 py-1 text-xs font-bold">
               Dual Audio ORG
             </div>
-            <div className="absolute bottom-0 left-0 w-full bg-black text-white bg-opacity-70 p-4">
+            <div className="absolute bottom-0 left-0 w-full bg-black text-white bg-opacity-70 p-2">
               <h3 className="text-lg font-semibold truncate">{movie.title}</h3>
 
-              <div className="flex justify-between text-sm text-gray-300 mt-2 ">
+              <div className="flex justify-between text-sm text-gray-300 ">
                 <div>
                   <p>Genre: {movie.genre}</p>
                   <p>Release Year: {movie.release}</p>
@@ -142,7 +142,7 @@ const Home = () => {
 
               <Link
                 to={`/detail/${movie._id}`}
-                className="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
+                className="mt-4 inline-block bg-blue-500 text-white px-2 rounded hover:bg-blue-700 transition"
               >
                 View Details
               </Link>
@@ -173,7 +173,7 @@ const Home = () => {
           <h3 className="text-lg font-semibold truncate">{coming.Title}</h3>
           <p className="text-sm">{coming.ReleaseYear}</p>
           <div className="flex items-center mt-2">
-            <span className="bg-yellow-400 text-black px-2 py-1 rounded-md text-xs font-bold mr-2">{coming.Rating}</span>
+            <span className="bg-yellow-400 text-black px-2 py-1 rounded-md text-xs font-bold mr-2"> Rating{coming.Rating}</span>
             <span className="text-xs">{coming.ReleaseYear}</span>
           </div>
           <div className='flex justify-between items-center p-2'>
