@@ -99,26 +99,27 @@ const Navbar = () => {
                 <div
                   className={`absolute top-10 right-0 bg-white shadow-lg rounded-md p-4 ${!isHidden ? 'block' : 'hidden'}`}
                 >
-                  <div className="flex justify-center flex-col items-center">
-                    <img className="w-24 h-24 rounded-full mb-2" src={user?.photoURL} alt="User" />
-                    <p className="text-slate-800 font-light text-sm">{user?.email}</p>
+                  <div className="flex justify-center flex-col items-center ">
+                    <img className="w-24 h-14 rounded-full mb-2" src={user?.photoURL} alt="User" />
+                    <p className="text-slate-800 font-light text-sm">{user?.displayName||user?.email}</p>
                     <div onClick={() => setIsHidden(true)} className="absolute top-2 right-2 cursor-pointer text-xl">
                       <RxCross1 />
                     </div>
                   </div>
                   <button
                     onClick={handleSignOutUser}
-                    className="w-full text-sm py-2 mt-4 border border-sky-500 bg-gradient-to-r from-sky-500 to-indigo-500 text-white"
+                    className="w-full text-sm py-2  border border-sky-500 bg-gradient-to-r from-sky-500 to-indigo-500 text-white"
                   >
                     Log Out
                   </button>
                 </div>
               </div>
             ) : (
-              <div className="lg:flex gap-4 space-y-2  font-semibold">
-               <p className="p-2 rounded-sm  text-white bg-blue-500"> <NavLink  to="/login"  onClick={handleLinkClick}>Log In</NavLink></p>
-               <p className="p-2 text-white bg-blue-500"> <NavLink to="/register" onClick={handleLinkClick}>Register</NavLink></p>
+              <div className="lg:flex space-y-2  gap-4 items-center   font-semibold">
+               <button className="p-2 btn rounded-sm bg-blue-600  text-white "> <NavLink  to="/login"  onClick={handleLinkClick}>Log In</NavLink></button>
+               <button className="p-2 btn rounded-sm bg-blue-600  text-white "> <NavLink to="/register" onClick={handleLinkClick}>Register</NavLink></button>
               </div>
+              
             )}
 
             {/* Hamburger Menu Icon for Mobile */}
