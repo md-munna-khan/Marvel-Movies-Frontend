@@ -1,7 +1,5 @@
 
 
-
-
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../layouts/AuthProvider";
@@ -52,13 +50,13 @@ const Navbar = () => {
 
   return (
     <>
-      <section className={`shadow w-full  left-0  my-8 sticky top-0 z-50    ${isdark ? 'bg-black text-white' : ''} px-4 py-5`}>
+      <section className={`shadow w-full  left-0  my-8 sticky top-0 z-50    ${isdark ? 'bg-black text-black lg:text-white' : ''} px-4 py-5`}>
         <nav className="flex justify-between items-center">
           <div>
             <Link className="logo flex items-center" to="/">
-              <h3 className="text-xl md:text-2xl text-red-500 font-semibold">
-                Marvel<span className="text-black">Movies</span>
-              </h3>
+              <div className="text-xl flex md:text-2xl text-red-500 font-semibold">
+                MARVEL MOVIES
+              </div>
             </Link>
           </div>
 
@@ -77,7 +75,7 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
             {/* Dark Mode Toggle */}
             <div onClick={handleDarkModeToggle} className="cursor-pointer text-2xl">
-              {isdark ? <CiDark /> : <MdOutlineLightMode />}
+              {isdark ? <CiDark className="white" /> :  <MdOutlineLightMode   />}
             </div>
 
             {/* User Icon for Desktop and Mobile */}
@@ -117,14 +115,14 @@ const Navbar = () => {
                 </div>
               </div>
             ) : (
-              <div className="flex gap-4 font-semibold">
-                <NavLink to="/login" onClick={handleLinkClick}>Log In</NavLink>
-                <NavLink to="/register" onClick={handleLinkClick}>Register</NavLink>
+              <div className="lg:flex gap-4 space-y-2  font-semibold">
+               <p className="p-2 rounded-sm  text-white bg-blue-500"> <NavLink  to="/login"  onClick={handleLinkClick}>Log In</NavLink></p>
+               <p className="p-2 text-white bg-blue-500"> <NavLink to="/register" onClick={handleLinkClick}>Register</NavLink></p>
               </div>
             )}
 
             {/* Hamburger Menu Icon for Mobile */}
-            <div onClick={handleToggleBar} className="md:hidden cursor-pointer text-xl">
+            <div onClick={handleToggleBar} className={`md:hidden cursor-pointer text-xl ${isdark? 'text-white':''}`}>
               {isShow ? <RxCross1 /> : <FaBars />}
             </div>
           </div>
@@ -132,7 +130,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         <div className={`absolute top-[75px] left-0 w-full bg-gray-50 py-5 ${isShow ? 'block' : 'hidden'} md:hidden`}>
-          <div className="text-center space-y-5 flex flex-col">
+          <div className='text-center space-y-5 flex flex-col'>
             <NavLink to="/" className="px-4 py-2" onClick={handleLinkClick} activeClassName="text-red-500">Home</NavLink>
             <NavLink to="/login" className="px-4 py-2" onClick={handleLinkClick} activeClassName="text-red-500">Login</NavLink>
             <NavLink to="/register" className="px-4 py-2" onClick={handleLinkClick} activeClassName="text-red-500">Register</NavLink>

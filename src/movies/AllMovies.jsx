@@ -49,7 +49,7 @@ const AllMovies = () => {
                             </div>
 
                             {/* Movie Content */}
-                            <div className="absolute bottom-0 left-0 w-full bg-black text-white bg-opacity-70 p-4">
+                            <div className="absolute bottom-0 left-0 w-full bg-black text-white bg-opacity-70 p-2">
                                 <h3 className="text-lg font-semibold truncate">{movie.title}</h3>
 
                                 <div className="flex justify-between text-sm text-gray-300 mt-2">

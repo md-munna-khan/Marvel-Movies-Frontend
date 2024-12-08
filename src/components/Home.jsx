@@ -1,5 +1,5 @@
 
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
@@ -44,7 +44,7 @@ const Home = () => {
     <section className= "banner mx-auto ">
   <div className="flex items-center justify-center">
     <Swiper
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      modules={[Navigation, Pagination, Scrollbar, A11y,Autoplay]}
       spaceBetween={50}
       slidesPerView={1}
       navigation
@@ -161,7 +161,7 @@ const Home = () => {
      </div>
 
      <section className='my-10'>
-  <h2 className='text-5xl text-center text-red-600 mb-8'>Coming Soon Movies</h2>
+  <h2 className='lg:text-5xl text-3xl text-center text-red-600 mb-8'>Coming Soon Movies</h2>
   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 shadow-md p-2  text-white">
     {comingMovies.map(coming => (
       <div className="relative bg-black text-bg-black shadow-lg rounded-lg overflow-hidden" key={coming._id}>
