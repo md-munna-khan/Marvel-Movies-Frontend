@@ -21,7 +21,10 @@ const DynamicTitle = () => {
             title = "My Favorites / Marvel-Movies";
         } else if (path === '/all-movies') {
             title = "All Movies / Marvel-Movies";
+        }else if(path=== '/cartoon'){
+            title= 'cartoon-movies'
         }
+        
         document.title = title;
     }, [location.pathname]);
 

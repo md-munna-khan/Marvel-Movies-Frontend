@@ -1,4 +1,5 @@
 import  { useEffect, useState } from "react";
+import DynamicTitle from "../components/DynamicTitle";
 
 const CartoonMovies = () => {
     const [cartoonMovies, setCartoonMovies] = useState([]);
@@ -11,6 +12,7 @@ const CartoonMovies = () => {
 
     return (
         <> 
+        <DynamicTitle></DynamicTitle>
          <h2 className="lg:text-4xl text-3xl py-4 text-red-500 text-center">Marvel Cartoon series</h2>
         <div className="container mx-auto p-4 bg-blue-100 my-10">
           
