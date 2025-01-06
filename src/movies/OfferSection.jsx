@@ -71,7 +71,7 @@ const OfferSection = () => {
                                 <span className="block mt-4 text-xl font-bold text-yellow-400">{offer.discountPercentage} OFF</span>
                                 <Link
                                     to={offer.link}
-                                    className="inline-block mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-all"
+                                    className="inline-block mt-4 bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-all"
                                 >
                                     Learn More
                                 </Link>

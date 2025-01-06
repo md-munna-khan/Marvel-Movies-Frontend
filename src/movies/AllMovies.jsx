@@ -1,94 +1,114 @@
 
+
 import { useContext, useEffect, useState } from "react";
 import { useLoaderData, Link } from "react-router-dom";
-import ReactStars from "react-rating-stars-component";  // Importing ReactStars for ratings
+import ReactStars from "react-rating-stars-component"; // Importing ReactStars for ratings
 import DynamicTittle from "../components/DynamicTitle";
 import { AuthContext } from "../layouts/AuthProvider";
 
 const AllMovies = () => {
-    const { isdark } = useContext(AuthContext);
-    const data = useLoaderData();
-    const [allMovies, setAllMovies] = useState(data);
-    const [search, setSearch] = useState('');
+  const { isdark } = useContext(AuthContext);
+  const data = useLoaderData();
+  const [allMovies, setAllMovies] = useState(data);
+  const [search, setSearch] = useState("");
 
-    // Fetching movie data with search functionality
-    useEffect(() => {
-        fetch(`https://movies-serversite.vercel.app/add?search=${search}`)
-            .then(res => res.json())
-            .then(data => setAllMovies(data))
-            .catch(error => console.error("Error fetching movies:", error));
-    }, [search]);
+  // Fetching movie data with search functionality
+  useEffect(() => {
+    fetch(`https://movies-serversite.vercel.app/add?search=${search}`)
+      .then((res) => res.json())
+      .then((data) => setAllMovies(data))
+      .catch((error) => console.error("Error fetching movies:", error));
+  }, [search]);
 
-    return (
-        <>
-            {/* Search Bar */}
-            <div className="w-[400px] mx-auto mb-6">
-                <DynamicTittle />
-                <input
-                    onChange={(e) => setSearch(e.target.value)}
-                    type="text"
-                    name="search"
-                    placeholder="Search for movies..."
-                    className="input input-bordered w-full p-4 rounded-xl shadow-md transition-all hover:shadow-xl focus:outline-none"
-                    required
-                />
-            </div>
+  return (
+    <>
+      {/* Search Bar */}
+      <div className="w-[400px] mx-auto mb-6">
+        <DynamicTittle />
+        <input
+          onChange={(e) => setSearch(e.target.value)}
+          type="text"
+          name="search"
+          placeholder="Search for movies..."
+          className="input input-bordered w-full p-4 rounded-xl shadow-md transition-all hover:shadow-xl focus:outline-none"
+          required
+        />
+      </div>
 
-            {/* Movies Display */}
-            <div className="w-11/12 mx-auto my-10">
-                <h2 className={`text-4xl font-bold text-center my-8 text-gray-800 ${isdark ? 'text-white' : ''}`}>All Movies</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {allMovies.map((movie) => (
-                        <div key={movie._id} className="relative bg-black text-bg-black shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
-                            {/* Movie Poster */}
-                            <img className="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105" src={movie.poster} alt={movie.title} />
+      {/* Movies Display */}
+      <section className="py-10 w-11/12 mx-auto my-10">
+        <h2
+          className={`text-4xl font-bold text-center my-8 ${
+            isdark ? "text-white" : "text-gray-800"
+          }`}
+        >
+          All Movies
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {allMovies.map((movie, index) => (
+            <div
+              key={movie._id}
+              className="shadow-lg rounded-lg overflow-hidden"
+              data-aos="zoom-in"
+              data-aos-delay={index * 100}
+            >
+              {/* Movie Poster */}
+              <img
+                className="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+                src={movie.poster}
+                alt={`Poster of ${movie.title}`}
+              />
 
-                            {/* Movie Badge */}
-                            <div className="absolute top-0 left-0 bg-red-500 text-black px-2 py-1 text-xs font-bold">
-                                Dual Audio ORG
-                            </div>
+              {/* Movie Details */}
+              <div className="p-4">
+                <h3 className="text-lg font-semibold truncate mb-2">
+                  {movie.title}
+                </h3>
 
-                            {/* Movie Content */}
-                            <div className="absolute bottom-0 left-0 w-full bg-black text-white bg-opacity-70 p-2">
-                                <h3 className="text-lg font-semibold truncate">{movie.title}</h3>
-
-                                <div className="flex justify-between text-sm text-gray-300 mt-2">
-                                    <div>
-                                        <p>Genre: {movie.genre}</p>
-                                        <p>Release Year: {movie.release}</p>
-                                    </div>
-                                    <div>
-                                        <p>Duration: {movie.duration} mins</p>
-                                        <div className="flex items-center">
-                                            <span className="bg-yellow-400 text-black px-2 py-1 rounded-md text-xs font-bold mr-2">
-                                                {movie.rating}
-                                            </span>
-                                            {/* ReactStars Rating Component */}
-                                            <ReactStars
-                                                count={5}
-                                                value={parseFloat(movie.rating)}
-                                                size={22}
-                                                edit={false}
-                                                activeColor="#ffd700"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* View Details Button */}
-                                <Link
-                                    to={`/detail/${movie._id}`}
-                                    className="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
-                                >
-                                    View Details
-                                </Link>
-                            </div>
-                        </div>
-                    ))}
+                {/* Dual Audio Label */}
+                <div className="absolute top-0">
+                  <span className="inline-block bg-red-500 text-black px-2 py-1 text-xs font-bold rounded">
+                    Dual Audio ORG
+                  </span>
                 </div>
+
+                {/* Details */}
+                <div className="text-sm mb-4">
+                  <p>Genre: {movie.genre}</p>
+                  <p>Release Year: {movie.release}</p>
+                  <div className="absolute top-0 right-0 text-white px-2 py-1 bg-gray-800">
+                    <p>{movie.duration} mins</p>
+                  </div>
+                </div>
+
+                {/* Rating */}
+                <div className="flex items-center mb-4">
+                  <span className="bg-yellow-400 text-black px-2 py-1 rounded-md text-xs font-bold mr-2">
+                    {movie.rating}
+                  </span>
+                  <ReactStars
+                    count={5}
+                    value={parseFloat(movie.rating)}
+                    size={22}
+                    edit={false}
+                    activeColor="#ffd700"
+                  />
+                </div>
+
+                {/* View Details Button */}
+                <Link
+                  to={`/detail/${movie._id}`}
+                  className="inline-block bg-gradient-to-r from-red-500 to-red-700 text-white px-4 py-2 rounded hover:from-red-600 hover:to-red-800 transition"
+                >
+                  View Details
+                </Link>
+              </div>
             </div>
-        </>
-    );
+          ))}
+        </div>
+      </section>
+    </>
+  );
 };
 
 export default AllMovies;

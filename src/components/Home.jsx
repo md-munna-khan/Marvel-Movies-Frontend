@@ -30,7 +30,7 @@ const Home = () => {
     setMovies(data);
   }, [data]);
 
-  const sortedMovies = movies.sort((a, b) => b.rating - a.rating).slice(0, 6);
+  const sortedMovies = movies.sort((a, b) => b.rating - a.rating).slice(0, 8);
 
   useEffect(() => {
     fetch('https://movies-serversite.vercel.app/coming-movies')
@@ -102,58 +102,71 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="py-10">
-          <h2 className="lg:text-4xl text-3xl text-center my-4">Featured Movies</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-4 shadow-md " data-aos="zoom-in-down">
-            {sortedMovies.map((movie) => (
-              <div
-                className="relative bg-black text-bg-black shadow-lg rounded-lg overflow-hidden"
-                key={movie._id}
-              >
-                <img
-                  className="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
-                  src={movie.poster}
-                  alt={movie.title}
-                />
-                <div className="absolute top-0 left-0 bg-red-500 text-black px-2 py-1 text-xs font-bold">
-                  Dual Audio ORG
-                </div>
-                <div className="absolute bottom-0 left-0 w-full bg-black text-white bg-opacity-70 p-2">
-                  <h3 className="text-lg font-semibold truncate">{movie.title}</h3>
+      
+     
+<section className="py-10">
+  <h2 className="lg:text-4xl bg-red-600 text-3xl text-center my-4">Featured Movies</h2>
+  <div className="grid relative grid-cols-1 md:grid-cols-3 lg:grid-cols-4 items-start gap-6 shadow-md">
+    {sortedMovies.map((movie, index) => (
+      <div
+        className="  shadow-lg rounded-lg overflow-hidden"
+        key={movie._id}
+        data-aos="zoom-in"
+        data-aos-delay={index * 100}
+      >
+        {/* Movie Poster */}
+        <img
+          className="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-105"
+          src={movie.poster}
+          alt={`Poster of ${movie.title}`}
+        />
 
-                  <div className="flex justify-between text-sm text-gray-300 ">
-                    <div>
-                      <p>Genre: {movie.genre}</p>
-                      <p>Release Year: {movie.release}</p>
-                    </div>
-                    <div>
-                      <p>Duration: {movie.duration} mins</p>
-                      <div className="flex items-center">
-                        <span className="bg-yellow-400 text-black px-2 py-1 rounded-md text-xs font-bold mr-2">
-                          {movie.rating}
-                        </span>
-                        <ReactStars
-                          count={5}
-                          value={parseInt(movie.rating)}
-                          size={22}
-                          edit={false}
-                          activeColor="#ffd700"
-                        />
-                      </div>
-                    </div>
-                  </div>
+        {/* Movie Details */}
+        <div className="p-4">
+          <h3 className="text-lg font-semibold truncate mb-2">{movie.title}</h3>
 
-                  <Link
-                    to={`/detail/${movie._id}`}
-                    className="mt-4 inline-block specialGradient text-white px-2 rounded hover:bg-blue-700 transition"
-                  >
-                    View Details
-                  </Link>
-                </div>
-              </div>
-            ))}
+          {/* Dual Audio Label */}
+          <div className=" absolute  top-0">
+            <span className="inline-block  bg-red-500 text-black px-2 py-1 text-xs font-bold rounded">
+              Dual Audio ORG
+            </span>
           </div>
-        </section>
+
+          {/* Details */}
+          <div className="text-sm  mb-4">
+            <p>Genre: {movie.genre}</p>
+            <p>Release Year: {movie.release}</p>
+          <div className='absolute top-0 right-0 text-white px-2 py-1 bg-gray-800'>  <p>{movie.duration} mins</p></div>
+          </div>
+
+          {/* Rating */}
+          <div className="flex items-center mb-4">
+            <span className="bg-yellow-400 text-black px-2 py-1 rounded-md text-xs font-bold mr-2">
+              {movie.rating}
+            </span>
+            <ReactStars
+              count={5}
+              value={parseInt(movie.rating)}
+              size={22}
+              edit={false}
+              activeColor="#ffd700"
+            />
+          </div>
+
+          {/* View Details Button */}
+          <Link
+            to={`/detail/${movie._id}`}
+            className="inline-block bg-gradient-to-r from-red-500 to-red-700 text-white px-4 py-2 rounded hover:from-red-600 hover:to-red-800 transition"
+          >
+            View Details
+          </Link>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+
 
         <div className="mx-auto text-center">
           <Link to="/all-movies" className="mt-4 inline-block specialGradient text-white py-2 px-4 rounded hover:bg-blue-700 transition">
