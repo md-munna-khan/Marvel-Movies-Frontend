@@ -8,14 +8,14 @@ import { useContext } from "react";
 const MainLayout = () => {
     const {isdark}=useContext(AuthContext)
     return (
-        <div className={`w-11/12 mx-auto my-4 ${isdark? 'bg-black text-white': '' }`}>
-         <nav>
+        <div >
+         <nav className="">
 <Navbar></Navbar>
          </nav>
-         <main>
+         <main className={`w-11/12 mx-auto my-4 ${isdark? 'bg-blue text-white': '' }`}>
             <Outlet></Outlet>
          </main>
-         <Footer></Footer>
+       <footer>  <Footer></Footer></footer>
         </div>
     );
 };

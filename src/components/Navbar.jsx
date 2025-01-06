@@ -1,8 +1,4 @@
 
-
-
-
-
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../layouts/AuthProvider";
@@ -53,8 +49,8 @@ const Navbar = () => {
 
   return (
     <>
-      <section className={`shadow w-full left-0 my-8 sticky top-0 z-50 ${isdark ? 'bg-black text-white' : ''} px-4 py-5`}>
-        <nav className="flex justify-between items-center">
+      <section className={`shadow w-full left-0 my-8 sticky  top-0 z-50 ${isdark ? 'bg-black text-white' : ''} px-4 py-5`}>
+        <nav className="flex justify-evenly items-center">
           <div>
             <Link className="logo flex items-center" to="/">
               <div className="text-xl flex md:text-2xl text-red-500 font-semibold">
@@ -108,9 +104,9 @@ const Navbar = () => {
                 )}
                 
                 <div
-                  className={`absolute top-10 right-0 bg-white shadow-lg rounded-md p-4 ${!isHidden ? 'block' : 'hidden'}`}
+                  className={`absolute top-10 right-0  bg-white shadow-lg rounded-md  ${!isHidden ? 'block' : 'hidden'}`}
                 >
-                  <div className="flex justify-center flex-col items-center ">
+                  <div className="flex justify-center p-8 flex-col items-center ">
                     <img className="w-24 h-14 rounded-full mb-2" src={user?.photoURL} alt="User" />
                     <p className="text-slate-800 font-light text-sm">{user?.displayName || user?.email}</p>
                     <div onClick={() => setIsHidden(true)} className="absolute top-2 right-2 cursor-pointer text-xl">
@@ -130,9 +126,9 @@ const Navbar = () => {
                 <button className="p-2 btn rounded-sm bg-blue-600 text-white">
                   <NavLink to="/login" onClick={handleLinkClick}>Log In</NavLink>
                 </button>
-                <button className="p-2 btn rounded-sm bg-blue-600 text-white">
+                {/* <button className="p-2 btn rounded-sm bg-blue-600 text-white">
                   <NavLink to="/register" onClick={handleLinkClick}>Register</NavLink>
-                </button>
+                </button> */}
               </div>
             )}
 

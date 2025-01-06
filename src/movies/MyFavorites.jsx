@@ -36,10 +36,10 @@ const MyFavorites = () => {
     return (
         <div className="w-11/12 mx-auto my-10">
             <DynamicTittle />
-            <h2 className="text-4xl text-center my-4">My Favorite Movies</h2>
+            <h2 className="text-4xl text-center text-red-500 my-4">My Favorite Movies</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {favorites.map(movie => (
-                    <div key={movie._id} className="bg-base-200 shadow-md p-4">
+                    <div key={movie._id} className="   shadow-md p-4">
                         <img className="w-full h-[300px] object-cover mb-4" src={movie.poster} alt={movie.title} />
                         <h3 className="text-2xl font-semibold mb-2">{movie.title}</h3>
                         <p className="text-sm text-gray-600 mb-2">Genre: {movie.genre}</p>

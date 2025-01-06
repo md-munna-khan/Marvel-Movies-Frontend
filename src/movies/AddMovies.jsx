@@ -1,7 +1,7 @@
 
-import React, { useContext, useState } from 'react';
+import  { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { toast, Toaster } from 'react-hot-toast';
+import {  Toaster } from 'react-hot-toast';
 import Swal from 'sweetalert2';
 import DynamicTitle from '../components/DynamicTitle';
 import { AuthContext } from '../layouts/AuthProvider';
@@ -48,7 +48,7 @@ const AddMovies = () => {
     const years = [2024, 2023, 2022, 2021, 2020];
 
     return (
-        <div className="mx-auto my-10 p-4  bg-base-200">
+        <div className="mx-auto my-10 p-4  shadow-lg">
             <DynamicTitle title="Add Movies" />
             <h2 className={`text-center text-2xl lg:text-5xl ${isdark ? 'text-black' : ''}`}>Add Movies Form</h2>
             <Toaster />
@@ -175,10 +175,18 @@ const AddMovies = () => {
                     {errors.summary && <span className="text-red-500">{errors.summary.message}</span>}
                 </div>
                 
-                <button className="btn my-4 btn-warning w-full" type="submit">Add Movie</button>
+                <button className="btn my-4 bg-red-600 w-full" type="submit">Add Movie</button>
             </form>
         </div>
     );
 };
 
 export default AddMovies;
+
+
+
+
+
+
+
+

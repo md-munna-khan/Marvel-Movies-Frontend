@@ -56,7 +56,7 @@ loader:({params})=> fetch(`https://movies-serversite.vercel.app/add/${params.id}
       },
       {
         path:'/detail/:id',
-        element:<PrivateRoute><MovieDetail></MovieDetail></PrivateRoute>,
+        element:<MovieDetail></MovieDetail>,
         loader:({params})=> fetch(`https://movies-serversite.vercel.app/add/${params.id}`)
        },
       {

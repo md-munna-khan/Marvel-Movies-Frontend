@@ -6,17 +6,17 @@ const Footer = () => {
   const { isdark } = useContext(AuthContext);
 
   return (
-    <footer className={`footer bg-base-200 text-base-content p-10 ${isdark ? 'bg-black text-white' : ''}`}>
+    <footer className={`footer mt-2 border text-base-content p-10 ${isdark ? 'bg-black text-white' : ''}`}>
       <div className="container mx-auto lg:grid lg:grid-cols-2 lg:gap-10 space-y-8 lg:space-y-0">
         
         {/* Left Column: Marvel Movies Info and Social Links */}
         <div className="space-y-6 flex flex-col lg:space-y-8">
-          <p className="text-red-500 text-4xl font-semibold">Marvel Movies</p>
+          <p className="text-red-500 text-4xl font-semibold uppercase">Marvel Movies</p>
           <p className="text-lg">Providing thrilling cinematic experiences since 1992</p>
 
           {/* Our Story */}
           <div className="our-story text-sm text-white-600">
-            <h6 className="footer-title text-xl font-semibold">Our Story</h6>
+            <h6 className=" text-xl text-red-600 font-semibold">Our Story</h6>
             <p>
               Marvel Movies has been at the forefront of action-packed storytelling for over three decades.
               From iconic superheroes to epic sagas, we continue to create cinematic experiences that captivate audiences worldwide.
@@ -52,7 +52,7 @@ const Footer = () => {
         <div className="space-y-6 flex flex-col lg:space-y-8">
           {/* Upcoming Releases Section */}
           <div className="upcoming-releases text-sm text-white-600">
-            <h6 className="footer-title text-xl font-semibold">Upcoming Releases</h6>
+            <h6 className=" text-xl text-red-500 font-semibold">Upcoming Releases</h6>
             <p>
               Get ready for the next big cinematic release! Stay tuned for the upcoming Marvel blockbusters, featuring your favorite superheroes.
             </p>
@@ -60,7 +60,7 @@ const Footer = () => {
 
           {/* Join the Community Section */}
           <div className="join-community text-sm text-white-600">
-            <h6 className="footer-title text-xl font-semibold">Join the Community</h6>
+            <h6 className=" text-xl text-red-500 font-semibold">Join the Community</h6>
             <p>
               Be part of the Marvel Universe! Connect with fellow fans, discuss the latest movies, and share your love for Marvel on our official forums.
             </p>
