@@ -49,9 +49,9 @@ const Footer = () => {
         </div>
 
         {/* Right Column: Upcoming Releases and Join the Community */}
-        <div className="space-y-6 flex flex-col lg:space-y-8">
+        <div className={`space-y-6 flex flex-col hidden md:block lg:space-y-8`}>
           {/* Upcoming Releases Section */}
-          <div className="upcoming-releases text-sm text-white-600">
+          <div className="upcoming-releases  text-sm text-white-600">
             <h6 className=" text-xl text-red-500 font-semibold">Upcoming Releases</h6>
             <p>
               Get ready for the next big cinematic release! Stay tuned for the upcoming Marvel blockbusters, featuring your favorite superheroes.

@@ -48,9 +48,10 @@ const Navbar = () => {
   };
 
   return (
-    <>
-      <section className={`shadow w-full left-0 my-8 sticky  top-0 z-50 ${isdark ? 'bg-black text-white' : ''} px-4 py-5`}>
-        <nav className="flex justify-evenly items-center">
+    <div >
+   <div className="w-11/12 mx-auto">
+   <section className={`shadow w-full left-0 my-8 sticky  top-0 z-50 ${isdark ? 'bg-black text-white' : ''} px-4 py-5`}>
+        <nav className="flex justify-between items-center">
           <div>
             <Link className="logo flex items-center" to="/">
               <div className="text-xl flex md:text-2xl text-red-500 font-semibold">
@@ -89,14 +90,18 @@ const Navbar = () => {
             {user ? (
               <div className="relative">
                 {/* Display user photo */}
-                {user.photoURL ? (
+                {user.photoURL ?  (
                   <img
                     src={user.photoURL}
                     alt="User"
                     className="w-8 h-8 rounded-full cursor-pointer"
                     onClick={handleToggleUser}
                   />
-                ) : (
+                
+                )
+              
+                  
+                : (
                   <FaUserCircle
                     onClick={handleToggleUser}
                     className={`text-3xl cursor-pointer ${!isHidden ? 'text-blue-500' : 'text-black'}`}
@@ -123,7 +128,7 @@ const Navbar = () => {
               </div>
             ) : (
               <div className="lg:flex space-y-2 gap-4 items-center font-semibold">
-                <button className="p-2 btn rounded-sm bg-blue-600 text-white">
+                <button className="p-2 btn rounded-sm bg-red-600 text-white">
                   <NavLink to="/login" onClick={handleLinkClick}>Log In</NavLink>
                 </button>
                 {/* <button className="p-2 btn rounded-sm bg-blue-600 text-white">
@@ -140,7 +145,7 @@ const Navbar = () => {
         </nav>
 
         {/* Mobile Menu */}
-        <div className={`absolute top-[75px] left-0 w-full bg-gray-50 py-5 ${isShow ? 'block' : 'hidden'} md:hidden ${isdark ? 'bg-black text-white' : ''}`}>
+        <div className={`absolute top-[75px] left-0 w-full text-white bg-gray-800 py-5 ${isShow ? 'block' : 'hidden'} md:hidden ${isdark ? 'bg-black text-white' : ''}`}>
           <div className='text-center space-y-5 flex flex-col'>
             <NavLink to="/" className="px-4 py-2" onClick={handleLinkClick} activeClassName="text-red-500">Home</NavLink>
             {!user && (
@@ -160,11 +165,14 @@ const Navbar = () => {
           </div>
         </div>
       </section>
-    </>
+   </div>
+    </div>
   );
 };
 
 export default Navbar;
+
+
 
 
 

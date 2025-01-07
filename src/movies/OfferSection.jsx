@@ -60,7 +60,7 @@ const OfferSection = () => {
                             data-aos="fade-up" // AOS animation for fade-up
                         >
                             <img
-                                className="w-full h-64 object-cover transform transition-transform duration-300"
+                                className="w-full px-4 h-64 object-cover transform transition-transform duration-300"
                                 src={offer.imageUrl}
                                 alt={offer.title}
                             />

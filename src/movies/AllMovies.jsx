@@ -38,7 +38,7 @@ const AllMovies = () => {
       {/* Movies Display */}
       <section className="py-10 w-11/12 mx-auto my-10">
         <h2
-          className={`text-4xl font-bold text-center my-8 ${
+          className={`text-4xl  font-bold text-red-600 text-center my-8 ${
             isdark ? "text-white" : "text-gray-800"
           }`}
         >

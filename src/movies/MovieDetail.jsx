@@ -65,7 +65,7 @@ const MovieDetail = () => {
     };
 
     return (
-        <div className="w-11/12 mx-auto my-10 bg-white shadow-lg rounded-lg p-4">
+        <div className="w-11/12 mx-auto my-10 bg-white shadow-lg rounded-lg ">
             <h2 className={`text-4xl font-bold text-center my-4 ${isdark? 'text-black':''}`}>Movie Details</h2>
             <div className="flex flex-col lg:flex-row items-center justify-center shadow-2xl p-4">
                 <img

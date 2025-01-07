@@ -77,7 +77,7 @@ const Register = () => {
     <div>
       <DynamicTittle></DynamicTittle>
       <div className="min-h-screen flex my-10 justify-center">
-        <div className="hero bg-base-200">
+        <div className="hero shadow-lg">
           <div className="hero-content flex-col">
             <div className="card bg-base-100 my-10 w-full max-w-lg shrink-0 shadow-2xl lg:p-10">
               <form onSubmit={handleRegister} className="card-body w-full pt-5">
@@ -107,7 +107,7 @@ const Register = () => {
                   <input type="password" placeholder="password" name="password" className="input input-bordered" required />
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary">Register</button>
+                  <button className="btn text-white bg-red-500">Register</button>
                 </div>
                 <p>Already have an account? Please <Link className="text-red-600" to="/login">Login</Link></p>
               

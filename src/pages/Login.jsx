@@ -51,7 +51,7 @@ const Login = () => {
         <div>
           <DynamicTittle></DynamicTittle>
                   <div className="min-h-screen my-10 flex justify-center">
-       <div className="hero bg-base-200 ">
+       <div className="hero ">
         <div className="hero-content flex-col ">
          
           <div className="card bg-base-100 w-full max-w-lg shrink-0 shadow-2xl lg:p-10">
@@ -85,7 +85,7 @@ const Login = () => {
                
               </div>
               <div className="form-control mt-6">
-                <button type="submit" className="btn btn-primary">Login</button>
+                <button type="submit" className="btn text-white bg-red-600">Login</button>
               </div>
               <p>You Dont Have An Account Please <Link className="text-red-600" to='/register'>Register</Link></p>
 
@@ -93,8 +93,9 @@ const Login = () => {
                 errorMessage && <p className="text-red-600">{errorMessage}</p>
               }
              {success && <p className="text-green-600">{success}</p>} */}
+             
                 <button type="button" onClick={handleGoggleSignIn} className=" border flex  justify-center rounded-lg items-center p-2 my-2  font-bold ">
-              <img className="w-6 ml-2" src={googleImage} alt="" />
+                <img className="w-6 space-x-2" src={googleImage} alt="" />
                   Log In With Google</button>
             </form>
            <Toaster></Toaster>
