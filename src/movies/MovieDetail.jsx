@@ -67,14 +67,14 @@ const MovieDetail = () => {
     return (
         <div className="w-11/12 mx-auto my-10 bg-white shadow-lg rounded-lg ">
             <h2 className={`text-4xl font-bold text-center my-4 ${isdark? 'text-black':''}`}>Movie Details</h2>
-            <div className="flex flex-col lg:flex-row items-center justify-center shadow-2xl p-4">
+            <div className="flex flex-col lg:flex-row lg:items-center justify-center shadow-2xl p-4">
                 <img
                     className="w-full lg:w-1/2 lg:h-[600px] object-cover mb-4 lg:mb-0"
                     src={movieData.poster}
                     alt={movieData.title}
                 />
-                <div className="lg:ml-8 p-4 text-center lg:text-left">
-                    <h3 className="lg:text-4xl text-gray-600 text-2xl font-bold mb-2">{movieData.title}</h3> {/* Title now has bold font */}
+                <div className="md:ml-8 p-4  md:text-left">
+                    <h3 className="md:text-4xl text-gray-600 text-2xl font-bold mb-2">{movieData.title}</h3> {/* Title now has bold font */}
                     <p className="text-2xl text-gray-600 mb-2">Genre: {movieData.genre}</p>
                     <p className="text-2xl text-gray-600 mb-2">Duration: {movieData.duration} minutes</p>
                     <p className="text-2xl text-gray-600 mb-2">Release Year: {movieData.release}</p>
@@ -89,10 +89,10 @@ const MovieDetail = () => {
                         />
                     </div>
                     <p className="text-sm text-gray-600 mb-4">Details: {movieData.summary}</p>
-                    <div className="space-x-3 mb-4 space-y-4">
+                    <div className="space-x-3 mb-4  flex justify-between ">
                         <button onClick={() => handleDelete(movieData._id)} className="p-2  bg-red-600 hover:bg-blue-700 text-white">Delete</button>
-                        <button onClick={addFavorite} className="p-2  bg-blue-600 hover:bg-blue-700 text-white">Add to Favorite</button>
-                       <button> <Link to={`/update-movies/${movieData._id}`} className="p-2  bg-blue-500 hover:bg-blue-600 text-white">Update Movie</Link></button>
+                        <button onClick={addFavorite} className="p-2  bg-red-600 hover:bg-blue-700 text-white">Add to Favorite</button>
+                       <button className="p-2  bg-red-600 hover:bg-blue-600 text-white" > <Link to={`/update-movies/${movieData._id}`} >Update Movie</Link></button>
                     </div>
                     <button onClick={() => navigate('/all-movies')} className="inline-block w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
                         See All Movies

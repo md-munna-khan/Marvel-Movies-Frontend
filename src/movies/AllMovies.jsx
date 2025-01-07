@@ -23,7 +23,7 @@ const AllMovies = () => {
   return (
     <>
       {/* Search Bar */}
-      <div className="w-[400px] mx-auto mb-6">
+      <div className=" lg:w-[400px] md:w-[300px] w-[250px] mx-auto mb-6">
         <DynamicTittle />
         <input
           onChange={(e) => setSearch(e.target.value)}
@@ -36,9 +36,9 @@ const AllMovies = () => {
       </div>
 
       {/* Movies Display */}
-      <section className="py-10 w-11/12 mx-auto my-10">
+      <section className=" w-11/12 mx-auto my-10">
         <h2
-          className={`text-4xl  font-bold text-red-600 text-center my-8 ${
+          className={`text-4xl  font-bold text-red-600 text-center mb-4 ${
             isdark ? "text-white" : "text-gray-800"
           }`}
         >

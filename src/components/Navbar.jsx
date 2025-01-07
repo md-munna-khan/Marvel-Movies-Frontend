@@ -49,8 +49,8 @@ const Navbar = () => {
 
   return (
     <div >
-   <div className="w-11/12 mx-auto">
-   <section className={`shadow w-full left-0 my-8 sticky  top-0 z-50 ${isdark ? 'bg-black text-white' : ''} px-4 py-5`}>
+   <div className="w-11/12 mx-auto sticky  top-0 z-50 backdrop-blur-lg  bg-opacity-50     ">
+   <section className={`shadow w-full left-0 my-8  ${isdark ? 'bg-black text-white' : ''} px-4 py-5`}>
         <nav className="flex justify-between items-center">
           <div>
             <Link className="logo flex items-center" to="/">
@@ -120,7 +120,7 @@ const Navbar = () => {
                   </div>
                   <button
                     onClick={handleSignOutUser}
-                    className="w-full text-sm py-2 border border-sky-500 bg-gradient-to-r from-sky-500 to-indigo-500 text-white"
+                    className="w-full text-sm py-2 border bg-red-600  text-white"
                   >
                     Log Out
                   </button>
@@ -138,14 +138,14 @@ const Navbar = () => {
             )}
 
             {/* Hamburger Menu Icon for Mobile */}
-            <div onClick={handleToggleBar} className={`md:hidden cursor-pointer text-xl ${isdark ? 'text-white' : ''}`}>
+            <div onClick={handleToggleBar} className={`lg:hidden cursor-pointer text-xl ${isdark ? 'text-white' : ''}`}>
               {isShow ? <RxCross1 /> : <FaBars />}
             </div>
           </div>
         </nav>
 
         {/* Mobile Menu */}
-        <div className={`absolute top-[75px] left-0 w-full text-white bg-gray-800 py-5 ${isShow ? 'block' : 'hidden'} md:hidden ${isdark ? 'bg-black text-white' : ''}`}>
+        <div className={`absolute top-[80px] left-0 w-full text-white bg-gray-800 py-5 ${isShow ? 'block' : 'hidden'} lg:hidden ${isdark ? 'bg-black text-white' : ''}`}>
           <div className='text-center space-y-5 flex flex-col'>
             <NavLink to="/" className="px-4 py-2" onClick={handleLinkClick} activeClassName="text-red-500">Home</NavLink>
             {!user && (
