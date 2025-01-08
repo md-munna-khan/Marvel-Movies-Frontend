@@ -23,7 +23,7 @@ const AllMovies = () => {
   return (
     <>
       {/* Search Bar */}
-      <div className=" lg:w-[400px] md:w-[300px] w-[250px] mx-auto mb-6">
+      <div className=" mt-24 lg:w-[400px] md:w-[300px] w-[250px] mx-auto mb-6">
         <DynamicTittle />
         <input
           onChange={(e) => setSearch(e.target.value)}

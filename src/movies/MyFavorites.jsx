@@ -34,7 +34,7 @@ const MyFavorites = () => {
     };
 
     return (
-        <div className="w-11/12 mx-auto my-10">
+        <div className="w-11/12 mx-auto my-10 mt-20">
             <DynamicTittle />
             <h2 className="text-4xl text-center text-red-500 my-4">My Favorite Movies</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -46,7 +46,7 @@ const MyFavorites = () => {
                         <p className="text-sm text-gray-600 mb-2">Duration: {movie.duration} minutes</p>
                         <p className="text-sm text-gray-600 mb-2">Release Year: {movie.releaseYear}</p>
                         <p className="text-sm text-gray-600 mb-2">Rating: {movie.rating}</p>
-                        <button onClick={() => handleDeleteFavorite(movie._id)} className="btn btn-error mt-2">Delete Favorite</button>
+                        <button onClick={() => handleDeleteFavorite(movie._id)} className="btn bg-red-600 text-white mt-2">Delete Favorite</button>
                     </div>
                 ))}
             </div>

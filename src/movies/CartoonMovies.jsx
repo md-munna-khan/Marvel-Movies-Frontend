@@ -11,11 +11,11 @@ const CartoonMovies = () => {
     }, []);
 
     return (
-        <> 
+        <div className="mt-20"> 
         <DynamicTitle></DynamicTitle>
-         <h2 className="lg:text-4xl text-3xl py-4 text-red-500 text-center">Marvel Cartoon series</h2>
+        <h2 className="lg:text-4xl text-3xl py-4 text-red-500 text-center">Marvel Cartoon series</h2>
         <div className="container mx-auto p-4 bg-blue-100 my-10">
-          
+        
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {cartoonMovies.map(cartoon => (
                     <div key={cartoon._id} className="bg-white p-4 rounded-lg shadow-lg">
@@ -27,7 +27,7 @@ const CartoonMovies = () => {
                 ))}
             </div>
         </div>
-        </>
+        </div>
     );
 };
 

@@ -53,10 +53,10 @@ const AddMovies = () => {
   };
 
   return (
-    <div className={`min-h-screen ${isdark ? "bg-gray-800" : "bg-gray-100"} p-8`}>
+    <div className={`min-h-screen mt-20 ${isdark ? "bg-gray-800" : "bg-gray-100"} p-8`}>
       <DynamicTitle title="Add Movies" />
       <Toaster />
-      <h2 className={`text-center text-3xl font-bold ${isdark ? "text-white" : "text-gray-900"} mb-6`}>
+      <h2 className={`text-center text-3xl text-red-5a00 font-bold ${isdark ? "text-white" : "text-gray-900"} mb-6`}>
         Add a New Movie
       </h2>
       <form onSubmit={handleSubmit(onSubmit)} className="bg-white shadow-lg rounded-lg p-8 max-w-2xl mx-auto">

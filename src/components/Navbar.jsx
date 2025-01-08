@@ -1,4 +1,5 @@
 
+
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../layouts/AuthProvider";
@@ -48,9 +49,9 @@ const Navbar = () => {
   };
 
   return (
-    <div >
-   <div className="w-11/12 mx-auto sticky  top-0 z-50 backdrop-blur-lg  bg-opacity-50     ">
-   <section className={`shadow w-full left-0 my-8  ${isdark ? 'bg-black text-white' : ''} px-4 py-5`}>
+    <header   className="fixed  w-11/12 mx-auto  top-0 z-50 backdrop-blur mb-10">
+   <div className="   bg-opacity-80     ">
+   <section className={`shadow  left-0 ${isdark ? 'bg-black text-white' : ''} px-4 py-5`}>
         <nav className="flex justify-between items-center">
           <div>
             <Link className="logo flex items-center" to="/">
@@ -61,7 +62,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="lg:flex space-x-4 hidden">
+          <div className="lg:flex space-x-4 text-lg font-bold text-red-500 hidden">
             <NavLink to="/" className="px-4 py-2" onClick={handleLinkClick} activeClassName="text-red-500">Home</NavLink>
             {!user && (
               <>
@@ -166,11 +167,13 @@ const Navbar = () => {
         </div>
       </section>
    </div>
-    </div>
+    </header>
   );
 };
 
 export default Navbar;
+
+
 
 
 

@@ -45,7 +45,7 @@ const Home = () => {
   }, []);
   return (
     <>
-      <div className={`w-11/12 mx-auto my-10 ${isdark ? 'bg-black text-white' : ''}`}>
+      <div className={`w-11/12 mt-20 mx-auto my-10 overflow-hidden   ${isdark ? 'bg-black text-white' : ''}`}>
         <DynamicTittle></DynamicTittle>
 
         <section className="banner mx-auto">
